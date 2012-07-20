@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/*
+  Foundation 3, artfully masterminded by ZURB
+  Addition
+  offcanvas.css - Specific CSS for off-canvas layouts
+
+  Off canvas layout CSS/JS provided by or adapted from work by Jason Weaver and Luke Wroblewski
+
+  Requires:
+    globals.css
+    grid.css
+*/
+/* line 18, ../sass/offcanvas.scss */
+body.off-canvas {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 20, ../sass/offcanvas.scss */
+.container {
+  width: 100%;
+}
+
+/* line 21, ../sass/offcanvas.scss */
+.row {
+  overflow: hidden;
+}
+
+/* line 22, ../sass/offcanvas.scss */
+.row .row {
+  overflow: visible;
+}
+
+/* line 24, ../sass/offcanvas.scss */
+footer {
+  background: #555;
+  color: #fff;
+  padding: 10px 0;
+}
+
+/* line 26, ../sass/offcanvas.scss */
+.paneled .container {
+  overflow: hidden;
+}
+
+/* line 27, ../sass/offcanvas.scss */
+.paneled .row {
+  width: 100%;
+}
+
+/* line 29, ../sass/offcanvas.scss */
+[role="main"]:before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #e4e4e4;
+  -webkit-box-shadow: inset -3px 0px 6px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset -3px 0px 6px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: inset -3px 0px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* line 32, ../sass/offcanvas.scss */
+[role="complementary"],
+[role="main"] {
+  width: 100%;
+  padding: 0 15px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.25s all ease-in;
+  -moz-transition: 0.25s all ease-in;
+  -o-transition: 0.25s all ease-in;
+  transition: 0.25s all ease-in;
+}
+
+/* line 34, ../sass/offcanvas.scss */
+.paneled [role="main"] {
+  padding: 0;
+}
+
+/* line 35, ../sass/offcanvas.scss */
+.page-panel {
+  width: 100%;
+  padding: 0 15px;
+  -webkit-transition: 0.3s margin ease-in-out;
+  -moz-transition: 0.3s margin ease-in-out;
+  -o-transition: 0.3s margin ease-in-out;
+  transition: 0.3s margin ease-in-out;
+  background: #fff;
+}
+
+/* line 36, ../sass/offcanvas.scss */
+#switchPanels {
+  margin: 0 -15px;
+}
+
+/* line 38, ../sass/offcanvas.scss */
+.hide-extras [role="complementary"] {
+  display: block;
+}
+
+/* line 40, ../sass/offcanvas.scss */
+[role="navigation"]#topMenu {
+  -webkit-transition: 0.25s all ease-in;
+  -moz-transition: 0.25s all ease-in;
+  -o-transition: 0.25s all ease-in;
+  transition: 0.25s all ease-in;
+}
+
+/* line 41, ../sass/offcanvas.scss */
+[role="navigation"]#topMenu ul {
+  margin-top: 0;
+}
+
+/* line 45, ../sass/offcanvas.scss */
+.js [role="complementary"] {
+  margin-left: -100%;
+  width: 80%;
+  float: left;
+  z-index: 2;
+}
+/* line 46, ../sass/offcanvas.scss */
+.js [role="main"] {
+  margin-left: 0;
+  background: #f4f4f4;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  float: right;
+  z-index: 1;
+  position: relative;
+}
+/* line 48, ../sass/offcanvas.scss */
+.js .paneled [role="main"] {
+  background: #fff;
+  width: 500%;
+  overflow: hidden;
+  float: none;
+  position: relative;
+  left: 0;
+  -webkit-transition: 0.15s all ease-in;
+  -moz-transition: 0.15s all ease-in;
+  -o-transition: 0.15s all ease-in;
+  transition: 0.15s all ease-in;
+}
+/* line 49, ../sass/offcanvas.scss */
+.js .page-panel {
+  min-height: 400px;
+  float: left;
+  margin: 0;
+  width: 20%;
+}
+
+/* line 52, ../sass/offcanvas.scss */
+.active [role="complementary"] {
+  margin-left: 0;
+}
+
+/* line 53, ../sass/offcanvas.scss */
+.active [role="main"] {
+  margin-right: -80%;
+}
+
+/* line 55, ../sass/offcanvas.scss */
+.active-menu [role="navigation"]#topMenu {
+  margin-top: 0 !important;
+}
+
+@media all and (min-width: 768px) {
+  /* line 61, ../sass/offcanvas.scss */
+  .js menu-button, .js .sidebar-button {
+    display: none;
+  }
+  /* line 62, ../sass/offcanvas.scss */
+  .js [role="complementary"] {
+    width: 33.34%;
+    margin-left: 0;
+    float: left;
+    padding: 0 15px;
+  }
+  /* line 63, ../sass/offcanvas.scss */
+  .js [role="main"] {
+    width: 66.66%;
+    padding: 0 15px;
+  }
+  /* line 65, ../sass/offcanvas.scss */
+  .js .paneled [role="main"] {
+    width: 100%;
+    padding: 0;
+    background: #f4f4f4;
+    left: 0 !important;
+  }
+  /* line 66, ../sass/offcanvas.scss */
+  .js .page-panel {
+    display: block;
+    min-height: 800px;
+    float: none;
+    margin: 0;
+    width: 100%;
+    background: #f4f4f4;
+  }
+  /* line 68, ../sass/offcanvas.scss */
+  .js .hide-extras [role="main"] {
+    width: 100%;
+  }
+  /* line 69, ../sass/offcanvas.scss */
+  .js .hide-extras [role="complementary"] {
+    display: none;
+  }
+  /* line 71, ../sass/offcanvas.scss */
+  .js [role="navigation"]#topMenu {
+    display: none;
+  }
+}
