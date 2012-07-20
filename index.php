@@ -50,9 +50,21 @@
               <img src="../images/wordpress.jpg" />
               <img src="../images/video.jpg" />
             </div>
+      		</div>
+          <div id="aside" class="four columns">
+            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites as well as produce unique & engaging films for the artist & entrepreneur alike, who desire to share their talents & visions with the world."
+            </blockquote>
+            <blockquote class="quote"><img src="images/seth.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
 
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
             <p>Middle8Media is a digital media studio based in Greensboro, North Carolina. Our dream is to work and succeed in a field that we love and our mission is to help you and your business do the same.</p> <!-- Take a look at our <a href="web" title="web portfolio">web portfolio</a> & our <a href="film" title="film productions">films</a>  <a href="connect">hiring us</a>. We would love to work with you &amp; live the dream together. -->
-
+          </div>
+        </div>
+        <div class="row">
+          <div class="eight columns ">
             <div class="panel radius">
             <h3>We specialize in:</h3>
 
@@ -68,17 +80,13 @@
                 <li><span class="glyph general-enclosed style1">c </span>Back-End technologies such as PHP and MySQL</li>
                 <li><span class="glyph general-enclosed style1">c </span>Photoshop & Illustrator</li>
               </ul>
+            </div>
           </div>
 
-      		</div>
-          <div id="aside" class="four columns">
-            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites as well as produce unique & engaging films for the artist & entrepreneur alike, who desire to share their talents & visions with the world."
-            </blockquote>
-            <blockquote class="quote"><img src="images/seth.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
-
-            <?php include 'project-status.php'; ?>
-
+          <div class="four columns">
+              <?php include 'project-status.php'; ?>
           </div>
+        </div>
         </div>
   		</section>
 

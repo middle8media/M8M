@@ -166,11 +166,17 @@ ul.logo-grid {
 		display: block;
 		float: left;
 		width: 33.3%;
+		@include respond-to(portrait-mobile) {width: 33%;}
+		@include respond-to(landscape-mobile) {width: 33%;}
 		margin-bottom: 8%;
+		@include respond-to(portrait-mobile) {margin-bottom: 16%;}
+		@include respond-to(landscape-mobile) {margin-bottom: 16%;}
 		img {
 			display: block;
 			margin:auto;
 			width: 50%;
+			@include respond-to(portrait-mobile) {width: 80%;}
+			@include respond-to(landscape-mobile) {width: 80%;}
 /*			-webkit-filter: grayscale(100%);
 			@include transition-property(all);
   			@include transition-duration(.15s);
@@ -188,6 +194,8 @@ ul.logo-grid-2 {
 		display: block;
 		float: left;
 		width: 48.5%;
+		@include respond-to(portrait-mobile) {width: 100%;}
+		@include respond-to(landscape-mobile) {width: 100%;}
 		margin-bottom: 8%;
 		img{
 			display: block;
