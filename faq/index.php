@@ -49,30 +49,30 @@
               <li><a href="#payment" title="Payment">What is your payment process?</a></li>
               <li><a href="#process" title="Process">What is your creative process?</a></li>
             </ol>
-            <hr>
+            <hr id="services">
             <ol>
-              <li id="services"><h5>What services do you offer?</h5>
+              <li><h5>What services do you offer?</h5>
                 <p>We offer full professional <a href="../web">web design & devlopment services</a>. Web Design is how your site looks, Web Development is how your site functions in the web browser. We can design and code a new site from scratch or build upon an existing framework such as <a title="Wordpress.org" href="http://wordpress.org/" target="_blank" >Wordpress</a> to provide a <span class="has-tip tip-top" title="Content Management System">CMS</span>, which provides admin access to a user friendly dashboard, allowing you to change and update your web content when and where you want.</p>
                 <p>We also provide full professional <a href="../film">video services</a>. Narrative short films, original mini-docs, unique web videos... you name it and we can produce it. We will handle all aspects of the production, from concept and pre-production to principal photography and post production, all working towards the delivery and upload of a finished video. We have worked in film and video for over 15 years and take pride in producing high quality handcrafted work.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <span class="glyph general-enclosed">w </span></a>
+                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
-              <hr class="show-for-medium-down">
-              <li id="cost"><h5>How much will my project cost?</h5>
+              <hr id="cost">
+              <li><h5>How much will my project cost?</h5>
                 <p>Each project is bid according to the project needs, size and time frame. Once this is determined, M8M will provide a project proposal and project terms. Our minimum budget per project is $2,500, although we do our best to work within your budget. If we are unable to do so, we will point you in the right direction. Every potential client is important to us, so one way or another we aim to offer a solution.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <span class="glyph general-enclosed">w </span></a>
+                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
-              <hr class="show-for-medium-down">
-              <li id="time"><h5>How long will my project take?</h5>
+              <hr id="time">
+              <li><h5>How long will my project take?</h5>
                 <p>A rule of thumb is anywhere from 2 weeks to 2 months, but this varies depending on the specific needs, size and time frame of the project. Keep in mind that we are a small studio and can only do <span class="has-tip tip-top" title="Usually 2-3 projects at a time">so much</span>, if you need it yesterday, we will charge accordingly.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <span class="glyph general-enclosed">w </span></a>
+                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
-              <hr class="show-for-medium-down">
-              <li id="payment"><h5>What is your payment process?</h5>
+              <hr id="payment">
+              <li><h5>What is your payment process?</h5>
                 <p>After the project proposal and project terms are agreed upon and a contract is signed, we require 50% up front to start, 25% upon delivery of 1st draft and 25% upon delivery of final draft.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <span class="glyph general-enclosed">w </span></a>
+                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
-              <hr class="show-for-medium-down">
-              <li id="process"><h5>What is your creative process?</h5>
+              <hr id="process">
+              <li><h5>What is your creative process?</h5>
                 <p>Although, the processes of web design & development and video production differ slightly, they are essentially the same.</p>
                 <p>After initial contact, we will schedule a meeting to discuss your project specifics and project terms. This can be done in person over <span class="has-tip tip-top" title="World's Best Beverage???">coffee</span>
  or via <a title="Skype.com" href="http://www.skype.com/" target="_blank">Skype</a> or <a title="Apple_Facetime" href="http://www.apple.com/mac/facetime/" target="_blank" >Facetime</a>. M8M will then email a project proposal, laying out the terms and cost in detail. Once agreed upon, M8M will provide a contract to be sign by both parties. After the contract is signed it is GO TIME!!! We require 50% payment to start. Then we work with you to gather content and deliverables. For a website this usually includes all images, logo files, web copy etc... basically anything in your posession that needs to go on your site, (don't worry we will walk you through it). After that we <span class="has-tip tip-top" title="design and develop for web, shoot and edit for video">produce</span> your project. We then present you with a 1st draft, requiring 25% payment upon delivery. After you provide us with your revisions, we produce the final draft, requiring the final 25% payment upon delivery. We are available for 5 working days after delivery of final draft for support and questions. Changes and revisions are not part of the 5 day support. Support is for fine tuning, questions, thoughts, troubleshooting etc... Any additional support, changes or admin are billed at $100 per hour.</p>
@@ -93,7 +93,7 @@
                   <li>Support</li>
                   <li>$100 an hour for any additional support, changes and/or admin</li>
                 </ul>
-                <a href="#page" title="Back to Questions">Back to Questions <span class="glyph general-enclosed">w </span></a>
+                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
             </ol>
       		</div>
@@ -101,10 +101,10 @@
             <hr class="show-for-small">
             <blockquote>"To help our clients understand our creative process and business practices, we have provided this FAQ. If you have further questions about your project or our process, please send us an email."
             </blockquote>
-            <blockquote class="quote"><img src="../images/seth.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
-            <div class="panel radius">
+            <blockquote class="quote"><img src="../images/seth-avatar.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
+            <div class="panel">
             <h5>More Questions?</h5>
-            <p><a href="mailto:info@middle8media.com?subject=Project Inquiry" "email Seth" class="small button">info@middle8media.com</a></p>
+            <p><a href="mailto:info@middle8media.com?subject=Project Inquiry" "email Seth" class="small button alert">info@middle8media.com</a></p>
           </div>
           </div>
         </div>
@@ -114,11 +114,8 @@
 
 		</div>
 
-    <footer class="site-footer row" role="contentinfo">
-      <div class="twelve columns">
-        © 2012 Middle8Media | Greensboro, NC
-      </div>
-    </footer>
+    <?php include '../footer.php'; ?>
+
   </div>
 
 
@@ -138,7 +135,7 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-       $('a[href*=#]').bind('click', function(e) {
+       $('a[href*=#page], a[href*=#services], a[href*=#cost], a[href*=#time], a[href*=#payment], a[href*=#process]').bind('click', function(e) {
             e.preventDefault(); //prevent the "normal" behaviour which would be a "hard" jump
 
             var target = $(this).attr("href"); //Get the target

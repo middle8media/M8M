@@ -50,35 +50,31 @@
               <img src="../images/wordpress.jpg" />
               <img src="../images/video.jpg" />
             </div>
+            <p>Middle8Media is a digital media studio based in Greensboro, North Carolina. Our dream is to work and succeed in a field that we love and our mission is to help you and your business do the same. We promise to give each clients the personal attention needed to meet the intended goals ?????????????</p>
       		</div>
           <div id="aside" class="four columns">
-            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites as well as produce unique & engaging films for the artist & entrepreneur alike, who desire to share their talents & visions with the world."
+            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites as well as produce unique & engaging films for the artist & entrepreneur alike. If you want to share your talent & vision with the world, consider us for your next project."
             </blockquote>
-            <blockquote class="quote"><img src="images/seth.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
+            <blockquote class="quote"><img src="images/seth-avatar.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
+          </div>
+        </div>
 
-          </div>
-        </div>
-        <div class="row">
-          <div class="twelve columns">
-            <p>Middle8Media is a digital media studio based in Greensboro, North Carolina. Our dream is to work and succeed in a field that we love and our mission is to help you and your business do the same.</p> <!-- Take a look at our <a href="web" title="web portfolio">web portfolio</a> & our <a href="film" title="film productions">films</a>  <a href="connect">hiring us</a>. We would love to work with you &amp; live the dream together. -->
-          </div>
-        </div>
         <div class="row">
           <div class="eight columns ">
-            <div class="panel radius">
+            <div class="panel">
             <h3>We specialize in:</h3>
 
               <ul>
-                <li><span class="glyph general-enclosed style1">c </span>Front-End Development (<span class="html">HTML5</span>, <span class="css">CSS3</span> & <span class="js">jQuery</span>)</li>
-                <li><span class="glyph general-enclosed style1">c </span>Responsive/Mobile Ready Web Design</li>
-                <li><span class="glyph general-enclosed style1">c </span>Wordpress Customization</li>
-                <li><span class="glyph general-enclosed style1">c </span>Film & Video Production</li>
+                <li>✪ Front-End Development (<span class="html">HTML5</span>, <span class="css">CSS3</span> & <span class="js">jQuery</span>)</li>
+                <li>✪ Responsive/Mobile Ready Web Design</li>
+                <li>✪ Wordpress Customization</li>
+                <li>✪ Film & Video Production</li>
               </ul>
 
             <h5>We are skilled in:</h5>
               <ul>
-                <li><span class="glyph general-enclosed style1">c </span>Back-End technologies such as PHP and MySQL</li>
-                <li><span class="glyph general-enclosed style1">c </span>Photoshop & Illustrator</li>
+                <li>✪ Back-End technologies such as PHP and MySQL</li>
+                <li>✪ Photoshop & Illustrator</li>
               </ul>
             </div>
           </div>
@@ -87,18 +83,14 @@
               <?php include 'project-status.php'; ?>
           </div>
         </div>
-        </div>
-  		</section>
+      </section>
 
       <?php include 'mobile-nav.php'; ?>
 
 		</div>
 
-    <footer class="site-footer row" role="contentinfo">
-      <div class="twelve columns">
-        <p>© 2012 Middle8Media | Greensboro, NC</p>
-      </div>
-    </footer>
+    <?php include 'footer.php'; ?>
+
   </div>
 
 	<!-- Included JS Files -->

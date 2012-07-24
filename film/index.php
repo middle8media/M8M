@@ -40,7 +40,7 @@
 		<div class="row">
   		<section role="main">
          <h2>Handcrafted Films</h2>
-         <a href="#bottom" title="Go to Bottom"><span class="glyph general-enclosed">x </span>Go to Bottom</a>
+         <a href="#bottom" title="Go to Bottom"><i class="icon-circle-arrow-down icon-large"></i> Go to Bottom</a>
          <hr>
   			<div class="row">
   			  <div class="twelve columns">
@@ -85,45 +85,38 @@
              <iframe src="http://player.vimeo.com/video/19953696?title=0&amp;byline=0&amp;color=f4c430" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
              <blockquote>Sunset Farms is a multi-generational sustainable family farm located in Snow Camp, NC. This mini doc answers the question, what is CSA?</blockquote>
             </div>
-          <p><a href="#page" title="Back to Top"><span class="glyph general-enclosed">w </span>Back to Top</a></p>
+          <a id="bottom" href="#page" title="Back to Top"><i class="icon-circle-arrow-up icon-large"></i> Back to Top</a>
           <hr>
       		</div>
-       		<div id="aside" class="twelve columns">
-            <div class="row">
-<!--               <div class="four columns">
-              <blockquote>"We hope you enjoyed watching our handcrafted short films, mini-docs and web videos as much as we did making them.
-              <cite>Seth Hall, Founder</cite>
-              </blockquote>
-              </div> -->
 
-              <div id="bottom" class="four columns">
-                <div class="panel radius">
+       		<div id="aside" class="twelve columns">
+              <div class="four columns">
+                <div class="panel">
                   <h5>Watch on Vimeo</h5>
                 <p>You can watch these and other films on Vimeo.</p>
-                <p><a href="https://vimeo.com/middle8media" target="_blank" class="small button">M8M on Vimeo</a></p>
+                <p><a href="https://vimeo.com/middle8media" target="_blank" class="small button alert">M8M on Vimeo</a></p>
                 <br />
                 </div>
               </div>
 
               <div class="four columns">
-                <div class="panel radius">
+                <div class="panel">
                   <h5>Interested in a short film?</h5>
                 <p>Email us if you are intereted in a film for your business, event, family etc...</p>
-                <p><a href="mailto:info@middle8media.com?subject=Project Inquiry" "email Seth" class="small button">info@middle8media.com</a></p>
+                <p><a href="mailto:info@middle8media.com?subject=Project Inquiry" "email Seth" class="small button alert">info@middle8media.com</a></p>
                 <br />
                 </div>
               </div>
 
               <div class="four columns">
-                <div class="panel radius">
+                <div class="panel">
                   <h5>We also make feature films!</h5>
                 <p>For our feature film efforts, visit NewRiverReleasing.com</p>
-                <p><a href="http://newriverreleasing.com" target="_blank"  title="New River Releasing" class="small button">New River Releasing</a></p>
+                <p><a href="http://newriverreleasing.com" target="_blank"  title="New River Releasing" class="small button alert">New River Releasing</a></p>
                 <br />
                 </div>
               </div>
 
-            </div>
       		</div>
         </div>
   		</section>
@@ -132,11 +125,8 @@
 
 		</div>
 
-    <footer class="site-footer row" role="contentinfo">
-      <div class="twelve columns">
-        © 2012 Middle8Media | Greensboro, NC
-      </div>
-    </footer>
+    <?php include '../footer.php'; ?>
+
   </div>
 
 
@@ -161,7 +151,7 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-       $('a[href*=#]').bind('click', function(e) {
+       $('a[href*=#page], a[href*=#bottom]').bind('click', function(e) {
             e.preventDefault(); //prevent the "normal" behaviour which would be a "hard" jump
 
             var target = $(this).attr("href"); //Get the target

@@ -43,12 +43,12 @@
   			<div class="row">
   			  <div class="eight columns">
 
-            <div class="panel radius">
+            <div class="panel">
               <h5>Client/Project Status:</h5>
-                <p><span class="glyph general-enclosed style1">c </span><em>We are accepting projects for August 2012.</em></p>
+                <p><em><i class="icon-asterisk icon-large style1"></i> We are accepting projects for August 2012.</em></p>
             </div>
 
-            <p>If you are interested in hiring us, please fill out the form below with your project details and we will respond shortly. If you would just like to say hello send us an <a href="mailto:info@middle8media.com?subject=Hello" "email">email</a></p>
+            <p>If you are interested in hiring us, please fill out the form below with your project details and we will respond shortly. If you would just like to say hello send us an <a href="mailto:info@middle8media.com?subject=Hello" "email">email</a>.</p>
 
             <form class="jotform-form" action="http://submit.jotform.com/submit.php" method="post" name="form_12854524282" id="12854524282" accept-charset="utf-8">
             <input type="hidden" name="formID" value="12854524282">
@@ -170,7 +170,7 @@
 
                 <div class="twelve column budget" style="padding: 0px 0px 20px 0px;">
                   <li class="form-line" id="id_10">
-                    <label class="form-label-left" id="label_10" for="input_10">
+                    <label class="form-label-left" id="label_10" for="input_10 customDropdown">
                       Budget
                     </label>
                     <div id="cid_10" class=""><span class="form-sub-label-container"><select class="form-dropdown validate[required]" style="width:178px" id="input_10" name="q10_budget">
@@ -183,7 +183,7 @@
                           <option value="$3,500 - $5,000"> to be determined </option>
                         </select>
                         <br />
-                        <label for="input_10" style="color:#DD4B39;"><em>* Every potential client is important to us, so regardless of your budget, one way or another, we aim to offer a solution.</em></label></span>
+                        <label for="input_10" style="color:#DD4B39;"><p><em>* Every potential client is important to us, so regardless of your budget, one way or another, we aim to offer a solution.</em></p></label></span>
                     </div>
                   </li>
                 </div>
@@ -209,7 +209,7 @@
                   <li class="form-line" id="id_2">
                     <div id="cid_2" class="form-input-wide">
                       <div style="text-align:left" class="form-buttons-wrapper">
-                        <button id="input_2" type="submit" class="medium button">
+                        <button id="input_2" type="submit" class="medium button alert">
                           Submit
                         </button>
                       </div>
@@ -229,9 +229,9 @@
             <blockquote>"At Middle8Media the relationships we form with our clients are of the upmost importance. That's why we give each client and project the personal attention needed to create the best solution for your particular need. We take pride in producing high quality, standardized websites and unique, handcrafted films and consider it a privelage to partner with you and share your vision with the world. This is our promise to you. So if this sounds like the kind of relationship you desire, please connect with us, we would love to discuss your next project."
             </blockquote>
 
-            <blockquote class="quote"><img src="../images/seth.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
+            <blockquote class="quote"><img src="../images/seth-avatar.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
 
-              <div class="social-networks panel radius">
+              <div class="social-networks panel">
                 <h5>Social Networks</h5>
                 <ul>
                   <li><span class="glyph social facebook"><a href="http://www.facebook.com/middle8media" target="_blank" title="M8M on Instagram">d </a></span></li>
@@ -247,11 +247,8 @@
 
 		</div>
 
-    <footer class="site-footer row" role="contentinfo">
-      <div class="twelve columns">
-        © 2012 Middle8Media | Greensboro, NC
-      </div>
-    </footer>
+    <?php include '../footer.php'; ?>
+
   </div>
 
 
