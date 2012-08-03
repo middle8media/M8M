@@ -9,7 +9,7 @@
 	<meta charset="utf-8" />
 
 	<!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;" />
 
 	<title>Middle8Media - a Digital Media Studio</title>
 
@@ -41,21 +41,22 @@
 		<div class="row">
    		<section role="main">
         <h2>Welcome to Middle8Media.com</h2>
+        <!-- <h3 class="show-for-small">Welcome to Middle8Media.com</h3> -->
   			<div class="row">
   			  <div class="eight columns last">
 
-            <div id="featured">
-              <img src="../images/front-end.jpg" />
-              <img src="../images/responsive.jpg" />
-              <img src="../images/wordpress.jpg" />
-              <img src="../images/video.jpg" />
+            <div id="featured"> <!-- these are being served at @2x resolution -->
+              <img src="../images/responsive-slide.jpg" />
+              <img src="../images/front-end-slide.jpg" />
+              <img src="../images/wordpress-slide.jpg" />
+              <img src="../images/video-slide.jpg" />
             </div>
-            <p>Middle8Media is a digital media studio based in Greensboro, North Carolina. Our dream is to work and succeed in a field that we love and our mission is to help you and your business do the same. We promise to give each clients the personal attention needed to meet the intended goals ?????????????</p>
+            <p>Middle8Media is a digital media studio based in Greensboro, North Carolina. Our dream is to work and succeed in a field that we love and our mission is to help you and your business do the same. We promise to give each client and each project the individual attention needed to build great relationships and beautiful product. If this sounds like the kind of relationship you desire, please consider hiring us for your next project.</p>
       		</div>
           <div id="aside" class="four columns">
-            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites as well as produce unique & engaging films for the artist & entrepreneur alike. If you want to share your talent & vision with the world, consider us for your next project."
+            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites, as well as produce unique & engaging films, for the artist & entrepreneur alike. If you're ready to share your talent & vision with the world, please consider hiring us for your next project."
             </blockquote>
-            <blockquote class="quote"><img src="images/seth-avatar.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
+            <blockquote class="quote"><cite>Seth Hall, Founder</cite></blockquote>
           </div>
         </div>
 
@@ -67,14 +68,16 @@
               <ul>
                 <li>✪ Front-End Development (<span class="html">HTML5</span>, <span class="css">CSS3</span> & <span class="js">jQuery</span>)</li>
                 <li>✪ Responsive/Mobile Ready Web Design</li>
-                <li>✪ Wordpress Customization</li>
+                <li>✪ Wordpress Installation & Customization</li>
                 <li>✪ Film & Video Production</li>
               </ul>
 
             <h5>We are skilled in:</h5>
               <ul>
-                <li>✪ Back-End technologies such as PHP and MySQL</li>
-                <li>✪ Photoshop & Illustrator</li>
+                <li>✪ Graphic Design (<span class="adobe">Adobe Creative Suite</span>)</li>
+                <li>✪ Back-End Technologies such as PHP and MySQL</li>
+                <li>✪ Consulting in Cutting Edge Online Technologies</li>
+                <li>✪ Creating Solutions for your Online Needs</li>
               </ul>
             </div>
           </div>
@@ -94,7 +97,8 @@
   </div>
 
 	<!-- Included JS Files -->
-	<script src="javascripts/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="javascripts/foundation/jquery-1.7.1.min.js"><\/script>')</script>
 	<!-- Combine and Compress These JS Files -->
 	<script src="javascripts/foundation/jquery.reveal.js"></script>
 	<script src="javascripts/foundation/jquery.orbit-1.4.0.js"></script>
@@ -104,7 +108,7 @@
 	<!-- End Combine and Compress These JS Files -->
 	<script src="javascripts/app.js"></script>
 
-  <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
+  <!-- Add Orbit -->
 
   <script type="text/javascript">
    $(window).load(function() {
@@ -112,4 +116,25 @@
    });
   </script>
 
+  <!-- Add FitText -->
+
+  <script type="text/javascript">
+    $("h2").fitText(1.1, { minFontSize: 20, maxFontSize: '40px' });
+  </script>
+
+  <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26692859-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 </body>

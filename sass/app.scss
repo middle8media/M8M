@@ -74,17 +74,25 @@ ol {
 	font-weight: bold;
 }
 
+#sideMenu ul li i {
+	margin-right: 15px;
+}
+
 h1, h2, h3, h4, h5 {
 	font-family: adelle,serif;
 	font-weight:bold;
 }
 
 h1#site-title {
-	@include replace-text("logo.png");
+	text-indent: -999px;
+	background: url(../images/logo.png) no-repeat 50% 50%;
 	display: block;
 	height:	133px;
 	width: 100%;
 	margin: $basemargin auto;
+	-webkit-background-size: auto 90%;
+	-moz-background-size: auto 90%;
+	background-size: auto 90%;
 }
 
 h2 {
@@ -97,6 +105,28 @@ blockquote {
 	margin: 0px 0 14px;
 	padding: 0px 5px 0 20px;
 	border-left: 1px solid #DDD;
+	color: #555;
+}
+
+.quote {
+	border:none;
+	display: block;
+	background: url(../images/seth-avatar.png) no-repeat 10% 50%;
+	height: 70px;
+	width: 100%;
+	-webkit-background-size: auto 90%;
+	-moz-background-size: auto 90%;
+	background-size: auto 90%;
+	img {
+		float: left;
+	}
+	cite {
+		float: left;
+		margin: 25px 0px 0px 75px;
+		@include respond-to(medium-screens) { font-size:13px; margin: 27px 0px 20px 64px };
+		@include respond-to(portrait-mobile) {margin: 27px 0px 20px 80px };
+		@include respond-to(landscape-mobile) {margin: 27px 0px 20px 89px };
+	}
 }
 
 .style1 {
@@ -116,18 +146,13 @@ blockquote {
 	color: #1E3044;
 }
 
-.quote {
-	border:none;
-	height: 70px;
-	img {
-		float: left;
-	}
-	cite {
-		float: left;
-		margin: 20px;
-	}
+.adobe {
+	color: #702872;
 }
 
+.hidden {
+	display: none;
+}
 
 /* -------------------------------------------- Orbit Slide Show */
 
@@ -154,13 +179,12 @@ blockquote {
 	border: 3px solid #3694B7;
 	margin-bottom: $basemargin + 10;
 	opacity:1;
-	background: url('/images/foundation/orbit/loading.gif') 50% 50% no-repeat;
 	@include transition-property(all);
   @include transition-duration(.15s);
 }
 
-#thumbnail-viewTab img:hover {
-		opacity:.3;
+#thumbnail-viewTab img:hover, #list-viewTab img:hover {
+		opacity:.8;
 }
 
 #list-viewTab {
@@ -185,23 +209,7 @@ blockquote {
 
 /* -------------------------------------------- Clients */
 
-.logo-grid img {
-	display: block;
-	margin:auto;
-	width: 490%;
-}
-
-.logo-grid-2 img {
-	display: block;
-	margin:auto;
-	width: 50%;
-	@include respond-to(portrait-mobile) {width: 30%;}
-	@include respond-to(landscape-mobile) {width: 30%;}
-}
-
-/* -------------------------------------------- Connect */
-
-.connect {
+.testimonial {
 	img {
 		width: 80px;
 		height: 80px;
@@ -219,13 +227,95 @@ blockquote {
 	}
 }
 
+.logo-grid img {
+	display: block;
+	margin:auto;
+	width: 490%;
+}
+
+.logo-grid-2 img {
+	display: block;
+	margin:auto;
+	width: 50%;
+	@include respond-to(portrait-mobile) {width: 30%;}
+	@include respond-to(landscape-mobile) {width: 30%;}
+}
+
+/* -------------------------------------------- Connect */
+
+#connectTab .quote {
+	border:none;
+	display: block;
+	background: url(../images/seth-avatar.png) no-repeat 3% 50%;
+	height: 70px;
+	width: 100%;
+	-webkit-background-size: auto 90%;
+	-moz-background-size: auto 90%;
+	background-size: auto 90%;
+	cite {
+		float: left;
+		margin: 25px 0px 0px 70px;
+		@include respond-to(medium-screens) { font-size:13px; margin: 27px 0px 20px 63px };
+		@include respond-to(portrait-mobile) {margin: 27px 0px 20px 60px };
+		@include respond-to(landscape-mobile) {margin: 27px 0px 20px 60px };
+	}
+}
+
 .name, .email {
 	@include respond-to(portrait-mobile) {padding-right: 0px;}
 	@include respond-to(landscape-mobile) {padding-right: 0px;}
 }
 
-.quote cite {
-	@include respond-to(medium-screens) { font-size:13px; margin: 20px 0px 20px 6px };
+/* -------------------------------------------- Jot Form */
+
+fieldset {
+  border: none;
+  padding: 0px;
+}
+
+fieldset li {
+  list-style: none;
+}
+
+.form-required {
+  color: #DD4B39;
+}
+
+#input_10 {
+  margin-bottom: 0px;
+}
+
+.six.columns.name, .six.columns.phone, .six.columns.email, .six.columns.website {
+  height: 100px;
+}
+
+.six.columns.website {
+  height: 82px;
+}
+
+.twelve.columns.details {
+  height: 188px;
+}
+
+.twelve.columns.budget {
+  height: 100px;
+}
+
+#id_10 .form-error-message {
+  margin-top: 10px;
+}
+
+.form-error-message {
+  background: rgba(198, 15, 19, 0.8);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  padding: 2px 7px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  margin: 0px;
 }
 
 /* -------------------------------------------- Social Networks */
@@ -237,7 +327,7 @@ blockquote {
 	a{
 	color: black;
 	margin-right: 25px;
-	@include respond-to(portrait-mobile) {margin-right: 59px;}
+	@include respond-to(portrait-mobile) {margin-right: 18px;}
 	@include respond-to(landscape-mobile) {margin-right: 99px;}
  	@include respond-to(medium-screens) { margin-right: 0px; }
   	@include respond-to(wide-screens) {}
@@ -278,11 +368,26 @@ footer {
 		@include respond-to(wide-screens) {float: right;}
 	}
 	ul.link-list {
-		@include respond-to(portrait-mobile) {margin: 0px auto 18px; width: 406px;}
+		@include respond-to(portrait-mobile) {margin: 0px -22px 18px; width: 406px;}
 		@include respond-to(landscape-mobile) {margin: 0px auto 18px; width: 406px;}
+		a {
+			font-weight: normal;
+		}
+		li {
+			@include respond-to(portrait-mobile) {margin-left: 19px;}
+		}
 }
 }
 
+.link-list .icon-large {
+		font-size: 25px;
+		@include respond-to(portrait-mobile) {font-size: 25px;}
+		@include respond-to(landscape-mobile) {font-size: 30px;}
+}
+
+.site-footer .has-tip {
+	border-bottom: none;
+}
 
 /* -------------------------------------------- FancyBox */
 

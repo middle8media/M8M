@@ -9,7 +9,7 @@
 	<meta charset="utf-8" />
 
 	<!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;" />
 
 	<title>Middle8Media - a Digital Media Studio</title>
 
@@ -19,7 +19,8 @@
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie.css">
 	<![endif]-->
-
+  <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<script src="../javascripts/foundation/modernizr.foundation.js"></script>
 
 	<!-- IE Fix for HTML5 Tags -->
@@ -38,12 +39,15 @@
 
 		<div class="row">
   		<section role="main">
-        <h2>Thank you for contacting us!</h2>
+        <h2>Thank You for Contacting Us!</h2>
   			<div class="row">
   			  <div class="eight columns">
 
             <div class="panel radius">
-                <p><span class="glyph general-enclosed style1">c </span><em>We will respond to your message shortly. In the meantime, connect with us via our social networks.</em></p>
+                <p><i class="icon-asterisk icon-large style1"></i> <em>We will respond to your message shortly. In the meantime, check out this classic video and connect with us via our social networks.</em></p>
+            </div>
+            <div class="fitvids">
+              <iframe width="560" height="315" src="http://www.youtube.com/embed/a_JCzZAqqQg" frameborder="0" allowfullscreen></iframe>
             </div>
 
       		</div>
@@ -52,7 +56,7 @@
             <blockquote>"At Middle8Media the relationships we form with our clients are of the upmost importance. That's why we give each client and project the personal attention needed to create solutions for a particular need. We take pride in producing high quality, standardized websites and unique, handcrafted films that share your vision with the world. This is our promise to you. So if this sounds like the kind of relationship you desire, please connect with us. We would love to discuss your next project."
             </blockquote>
 
-            <blockquote class="quote"><img src="../images/seth-avatar.png" alt="Seth Hall - Founder of Middle8Media"><cite>Seth Hall, Founder</cite></blockquote>
+            <blockquote class="quote"><cite>Seth Hall, Founder</cite></blockquote>
 
               <div class="social-networks panel radius">
                 <h5>Social Networks</h5>
@@ -76,7 +80,8 @@
 
 
 	<!-- Included JS Files -->
-	<script src="../javascripts/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="javascripts/foundation/jquery-1.7.1.min.js"><\/script>')</script>
 	<!-- Combine and Compress These JS Files -->
 	<script src="../javascripts/foundation/jquery.reveal.js"></script>
 	<script src="../javascripts/foundation/jquery.orbit-1.4.0.js"></script>
@@ -86,6 +91,34 @@
 	<!-- End Combine and Compress These JS Files -->
 	<script src="../javascripts/app.js"></script>
 
+  <!-- Add FitText -->
+
+  <script type="text/javascript">
+    $("h2").fitText(1.1, { minFontSize: 20, maxFontSize: '40px' });
+  </script>
+
+  <!-- Add FitVids -->
+
+  <script>
+    $(document).ready(function(){
+      $(".fitvids").fitVids();
+    });
+  </script>
+
   <script type="text/javascript" src="../javascripts/foundation/jquery.offcanvas.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26692859-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 
 </body>

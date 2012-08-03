@@ -1,0 +1,2006 @@
+3.2.0.alpha.261 (Bleeding Edge)
+fd9af942fbaca40982a183142e369aa7864cd199
+o:Sass::Tree::RootNode	:@has_childrenT:@template"l0// SASSY MODULAR-SCALE
+// https://github.com/scottkellum/modular-scale
+
+@charset "UTF-8"
+
+// Ratios
+$golden: 1.618
+$gold: $golden
+$double-octave: (4 / 1)
+$major-twelfth: (3 / 1)
+$major-eleventh: (8 / 3)
+$major-tenth: (5 / 2)
+$octave: (2 / 1)
+$major-seventh: (15 / 8)
+$minor-seventh: (16 / 9)
+$major-sixth: (5 / 3)
+$minor-sixth: (8 / 5)
+$fifth: (3 / 2)
+$augfourth: (1 / 1.4142135623730950488) // (1 / square root 2)
+$fourth: (4 / 3)
+$major-third: (5 / 4)
+$minor-third: (6 / 5)
+$major-second: (9 / 8)
+$minor-second: (16 / 15)
+
+// Defaults
+// $ratio: $golden !default
+// $base-size: 16px !default
+$property: font-size !default
+$class-slug: ms !default
+
+// Modular Scale function
+@function modular-scale($multiple, $base-size, $ratio)
+  // return the $base-size if $multiple is zero
+  @if $multiple == 0
+    @if type-of($base-size) == 'list'
+      $base-size: sort-list($base-size)
+      @return nth($base-size, 1)
+    // return just the simple $base-size value if it's not a list
+    @return $base-size
+
+  // if multiple base-sizes are passed in as a list
+  // and multiple ratios are passed in as a list
+  // calculate values in using each base-size / ratio combination
+  @if type-of($base-size) == 'list' and type-of($ratio) == 'list'
+    @if unit(ms-multibase-multiratio($multiple, $base-size, $ratio)) == 'px'
+      @return round(ms-multibase-multiratio($multiple, $base-size, $ratio))
+    @return ms-multibase-multiratio($multiple, $base-size, $ratio)
+
+  // if multiple base-sizes are passed in as a list
+  // calculate values in using each base-size
+  @if type-of($base-size) == 'list' and type-of($ratio) == 'number'
+    @if unit(ms-multibase($multiple, $base-size, $ratio)) == 'px'
+      @return round(ms-multibase($multiple, $base-size, $ratio))
+    @return ms-multibase($multiple, $base-size, $ratio)
+
+  // if multiple ratios are passed in as a list
+  // calculate values in using each ratio
+  @if type-of($base-size) == 'number' and type-of($ratio) == 'list'
+    @if unit(ms-multiratio($multiple, $base-size, $ratio)) == 'px'
+      @return round(ms-multiratio($multiple, $base-size, $ratio))
+    @return ms-multiratio($multiple, $base-size, $ratio)
+
+  // If there are no lists just run the simple function
+  @if unit(exponent($ratio, $multiple) * $base-size) == 'px'
+    @return round(exponent($ratio, $multiple) * $base-size)
+  @return exponent($ratio, $multiple) * $base-size
+
+
+// calculate values in using each base-size / ratio combination
+@function ms-multibase-multiratio($multiple, $base-size, $ratio)
+  // start with an empty list to place all values in
+  $scale-values: ()
+  // make sure base sizes are in ascending order
+  $base-size: sort-list($base-size)
+  // take each base-size in turn
+  $k: 1
+  @while $k <= length($base-size)
+    // add each $base-size to the list except the first
+    @if $k > 1
+      $scale-values: append($scale-values, nth($base-size, $k))
+    // take each ratio in turn
+    $j: 1
+    @while $j <= length($ratio)
+      // reset $modular-scale for each set
+      $modular-scale: nth($base-size, $k)
+      // do the scale for each base-size using this ratio
+      @if $multiple > 0
+        // up $multiple times
+        // and add the result to $scale-values
+        @for $i from 1 through $multiple
+          $modular-scale: exponent(nth($ratio, $j), $i) * nth($base-size, $k)
+          $scale-values: append($scale-values, $modular-scale)
+        // and down until the value is lower than the lowest $base-size
+        // and add the result to $scale-values
+        $i: -1
+        $modular-scale: nth($base-size, $k)
+        @while $modular-scale >= nth($base-size, 1)
+          $modular-scale: exponent(nth($ratio, $j), $i) * nth($base-size, $k)
+          $scale-values: append($scale-values, $modular-scale)
+          $i: $i - 1
+      @if $multiple < 0
+        // do the scale down for each set to below 1px
+        $i: -1
+        $modular-scale: nth($base-size, $k)
+        @while $modular-scale > 1
+          $modular-scale: exponent(nth($ratio, $j), $i) * nth($base-size, $k)
+          $scale-values: append($scale-values, $modular-scale)
+          $i: $i - 1
+      $j: $j + 1
+    $k: $k + 1
+  // return trimmed and sorted final list
+  @return trim-sort($multiple, $scale-values, $base-size)
+
+
+// calculate values in using each base-size
+@function ms-multibase($multiple, $base-size, $ratio)
+  // start with an empty list to place all values in
+  $scale-values: ()
+  // make sure base sizes are in ascending order
+  $base-size: sort-list($base-size)
+  // take each base-size in turn
+  $k: 1
+  @while $k <= length($base-size)
+    // add each $base-size to the list except the first
+    @if $k > 1
+      $scale-values: append($scale-values, nth($base-size, $k))
+    // reset $modular-scale for each set
+    $modular-scale: nth($base-size, $k)
+    // do the scale for each base-size using this ratio
+    @if $multiple > 0
+      // up $multiple times
+      // and add the result to $scale-values
+      @for $i from 1 through $multiple
+        $modular-scale: exponent($ratio, $i) * nth($base-size, $k)
+        $scale-values: append($scale-values, $modular-scale)
+      // and down until the value is lower than the lowest $base-size
+      // and add the result to $scale-values
+      $i: -1
+      $modular-scale: nth($base-size, $k)
+      @while $modular-scale >= nth($base-size, 1)
+        $modular-scale: exponent($ratio, $i) * nth($base-size, $k)
+        $scale-values: append($scale-values, $modular-scale)
+        $i: $i - 1
+    @if $multiple < 0
+      // do the scale down for each set to below 1px
+      $i: -1
+      $modular-scale: nth($base-size, $k)
+      @while $modular-scale > 1
+        $modular-scale: exponent($ratio, $i) * nth($base-size, $k)
+        $scale-values: append($scale-values, $modular-scale)
+        $i: $i - 1
+    $k: $k + 1
+  // return trimmed and sorted final list
+  @return trim-sort($multiple, $scale-values, $base-size)
+
+
+// calculate values in using each ratio
+@function ms-multiratio($multiple, $base-size, $ratio)
+  // start with an empty list to place all values in
+  $scale-values: ()
+  // If $multiple is a positive integer (up the scale)
+  @if $multiple > 0
+    // take each ratio in turn
+    $j: 1
+    @while $j <= length($ratio)
+      // reset $modular-scale for each set
+      $modular-scale: $base-size
+      // do the scale using this ratio thru the multiple, and add the result to $scale-values
+      @for $i from 1 through $multiple
+        $modular-scale: exponent(nth($ratio, $j), $i) * $base-size
+        $scale-values: append($scale-values, $modular-scale)
+      $j: $j + 1
+    // sort acsending
+    $scale-values: sort-list($scale-values)
+    // return the final value using the laced list
+    @return nth($scale-values, $multiple)
+  // If $multiple is a negative integer (down the scale)
+  @if $multiple < 0
+    // take each ratio in turn
+    $j: 1
+    @while $j <= length($ratio)
+      // reset $modular-scale for each set
+      $modular-scale: $base-size
+      // do the scale using this ratio thru the multiple, and add the result to $scale-values
+      @for $i from 1 through ($multiple * -1)
+        $modular-scale: exponent(nth($ratio, $j), -$i) * $base-size
+        $scale-values: append($scale-values, $modular-scale)
+      $j: $j + 1
+    // sort decending
+    $scale-values: sort-list($scale-values, 'dec')
+    // return the final value using the laced list
+    @return nth($scale-values, $multiple * -1)
+
+
+// trim and sort the final list
+@function trim-sort($multiple, $scale-values, $base-size)
+  @if $multiple > 0
+    // trim list so we can count from the lowest $base-size
+    $scale-values: trim-list($scale-values, nth($base-size, 1))
+    // sort acsending
+    $scale-values: sort-list($scale-values)
+    // return the final value using the laced list
+    @return nth($scale-values, $multiple)
+  @else
+    // trim list so we can count from the lowest $base-size
+    $scale-values: trim-list($scale-values, nth($base-size, 1), 'dec')
+    // sort acsending
+    $scale-values: sort-list($scale-values, 'dec')
+    // return the final value using the laced list
+    @return nth($scale-values, -$multiple)
+
+
+/////////////////////////////////////////////////////////////////////////
+
+// Shortcut
+@function ms($multiple, $base-size, $ratio)
+  // Return the value from the Modular Scale function
+  @return modular-scale($multiple, $base-size, $ratio)
+
+// Classes Mixin
+=modular-scale-classes($multiple, $property, $class-slug, $base-size, $ratio)
+
+  // Loop from 0 through the value of $multiple and generate a range of classes
+  @for $i from 0 through $multiple
+    .#{$class-slug}-#{$i}
+      // Print the $property and return the value from the Modular Scale function
+      #{$property}: modular-scale($i, $base-size, $ratio)
+
+=ms-classes($multiple, $property, $class-slug, $base-size, $ratio)
+  +modular-scale-classes($multiple, $property, $class-slug, $base-size, $ratio)
+
+// Write Modular Scale List
+@function modular-scale-list($start: 0, $finish: 20, $base-size: $base-size, $ratio: $ratio)
+  $ms-list: unquote("MS-LIST:")
+  @for $i from $start through $finish
+    $ms-list: append($ms-list, ms($i, $base-size, $ratio))
+  @return $ms-list
+
+@function ms-list($start: 0, $finish: 20, $base-size: $base-size, $ratio: $ratio)
+  @return modular-scale-list($start, $finish, $base-size, $ratio)
+
+=modular-scale-list($start: 0, $finish: 20, $base-size: $base-size, $ratio: $ratio)
+  @debug modular-scale-list($start, $finish, $base-size, $ratio)
+
+=ms-list($start: 0, $finish: 20, $base-size: $base-size, $ratio: $ratio)
+  @debug modular-scale-list($start, $finish, $base-size, $ratio)
+
+/////////////////////////////////////////////////////////////////////////
+
+
+// Sass exponent support
+@function exponent($base, $exponent)
+  // reset value
+  $value: $base
+  // positive intergers get multiplied
+  @if $exponent > 1
+    @for $i from 2 through $exponent
+      $value: $value * $base
+  // negitive intergers get divided. A number divided by itself is 1
+  @if $exponent < 1
+    @for $i from 0 through -$exponent
+      $value: $value / $base
+  // return the last value written
+  @return $value
+
+
+// Sass list sorting support
+@function sort-list($list, $dir: 'asc')
+  // built-in list sorting in Sass would make this go away.
+  // declare some empty lists to put our new order and temporary values
+  $new-order: ()
+  $temp: ()
+  // fill $temp with the contents of $list
+  $temp: join($temp, $list)
+  // if sorting ascending
+  @if $dir == 'asc'
+    // loop through all values in $list
+    @for $i from 1 through length($list)
+      // impossibly high starter value to compare
+      $low: 1000000
+      // check for lowest value in $temp
+      @for $j from 1 through length($temp)
+        @if nth($temp, $j) < $low
+          $low: nth($temp, $j)
+      // add lowest value to $new-order
+      $new-order: append($new-order, $low)
+      // empty $temp for the next comparison
+      $temp: ()
+      // re-populate $temp with remaining values to sort
+      @for $k from 1 through length($list)
+        @if nth($list, $k) > $low
+          $temp: append($temp, nth($list, $k))
+  @if $dir == 'dec'
+    // loop through all values in $list
+    @for $i from 1 through length($list)
+      // 0 starter value
+      $high: 0
+      // check for highest value in $temp
+      @for $j from 1 through length($temp)
+        @if nth($temp, $j) > $high
+          $high: nth($temp, $j)
+      $new-order: append($new-order, $high)
+      // empty $temp for the next comparison
+      $temp: ()
+      // re-populate $temp with remaining values to sort
+      @for $k from 1 through length($list)
+        @if nth($list, $k) < $high
+          $temp: append($temp, nth($list, $k))
+  @return $new-order
+
+
+// Sass list trimming support
+@function trim-list($list, $start, $dir: 'asc')
+  // built-in list trimming in Sass would make this go away.
+  // declare some empty lists to put our trimmed values
+  $trimmed: ()
+  // if sorting ascending
+  @if $dir == 'asc'
+    // loop through all values in $list
+    @for $i from 1 through length($list)
+      @if nth($list, $i) >= $start
+        $trimmed: append($trimmed, nth($list, $i))
+  @if $dir == 'dec'
+    // loop through all values in $list
+    @for $i from 1 through length($list)
+      @if nth($list, $i) <= $start
+        $trimmed: append($trimmed, nth($list, $i))
+  @return $trimmed
+
+// Other libraries can easily query if this function is avalible
+$modular-scale-loaded: true
+:@children[;o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass;[ :@value["// SASSY MODULAR-SCALE"
+"4// https://github.com/scottkellum/modular-scale:
+@linei:@options{ o:Sass::Tree::CharsetNode
+:
+@name"
+UTF-8;@	;[ ;i	;@o;	;
+;;@	;[ ;["// Ratios;i;@o:Sass::Tree::VariableNode;"golden;@	;[ :@guarded0;i;@:
+@expro:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;f1.6180000000000001 Ÿ:@original"
+1.618;i;@o;;"	gold;@	;[ ;0;i;@;o:Sass::Script::Variable	;"golden:@underscored_name"golden;i;@o;;"double-octave;@	;[ ;0;i;@;o:Sass::Script::Operation
+:@operand1o;
+;@;[ ;i	;i;@:@operator:div;i;@:@operand2o;;@;[ ;i;"1;i;@o;;"major-twelfth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"1;i;@o;;"major-eleventh;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"3;i;@o;;"major-tenth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i
+;i;@;;;i;@;o;;@;[ ;i;"2;i;@o;;"octave;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"1;i;@o;;"major-seventh;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"8;i;@o;;"minor-seventh;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"9;i;@o;;"major-sixth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i
+;i;@;;;i;@;o;;@;[ ;i;"3;i;@o;;"minor-sixth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i
+;"5;i;@o;;"
+fifth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"2;i;@o;;"augfourth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;f1.4142135623730951 ;Õ;"
+1.414;i;@o;;"fourth;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i	;i;@;;;i;@;o;;@;[ ;i;"3;i;@o;;"major-third;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i
+;i;@;;;i;@;o;;@;[ ;i	;"4;i;@o;;"minor-third;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i
+;"5;i;@o;;"major-second;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"8;i;@o;;"minor-second;@	;[ ;0;i;@;o;
+;o;
+;@;[ ;i;i;@;;;i;@;o;;@;[ ;i;"15;i;@o;	;
+;;@	;[ ;[
+"// Defaults"
+" // $ratio: $golden !default"
+"!// $base-size: 16px !default;i;@o;;"property;@	;[ ;"!default;i";@;o:Sass::Script::String	;
+:identifier;"font-size;i";@o;;"class-slug;@	;[ ;"!default;i#;@;o; 	;
+;!;"ms;i#;@o;	;
+;;@	;[ ;["// Modular Scale function;i%;@o:Sass::Tree::FunctionNode;"modular-scale;T;@	;[o;	;
+;;@	;[ ;["2// return the $base-size if $multiple is zero;i';@u:Sass::Tree::IfNode^[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@linei(:@options{ :@operator:eq;
+i(;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+i(;@
+0[u:Sass::Tree::IfNodeˆ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"type-of:
+@linei):@options{ :
+@args[o:Sass::Script::Variable	;	"base-size:@underscored_name"base_size;
+i);@
+:@operator:eq;
+i);@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"	list;
+i);@
+0[o:Sass::Tree::VariableNode;	"base-size:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+i*;@
+:
+@expro;
+;{ ;	"sort-list;
+i*;@
+;[o;	;	"base-size;"base_size;
+i*;@
+o:Sass::Tree::ReturnNode
+;@;[ ;
+i+;@
+;o;
+;{ ;	"nth;
+i+;@
+;[o;	;	"base-size;"base_size;
+i+;@
+o:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;i:@original"1;
+i+;@
+o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["B// return just the simple $base-size value if it's not a list;
+i,;@
+o:Sass::Tree::ReturnNode
+;@;[ ;
+i-;@
+:
+@expro;	;"base-size;	"base_size;
+i-;@
+o;	;
+;;@	;[ ;[
+"6// if multiple base-sizes are passed in as a list"
+"3// and multiple ratios are passed in as a list"
+"D// calculate values in using each base-size / ratio combination;i/;@u;#Á[o:Sass::Script::Operation
+:@operand1o; 
+;o:Sass::Script::Funcall
+:@keywords{ :
+@name"type-of:
+@linei2:@options{ :
+@args[o:Sass::Script::Variable	;	"base-size:@underscored_name"base_size;
+i2;@:@operator:eq;
+i2;@:@operand2o:Sass::Script::String	:
+@type:string:@value"	list;
+i2;@;:and;
+i2;@;o; 
+;o;
+;{ ;	"type-of;
+i2;@;[o;	;	"
+ratio;"
+ratio;
+i2;@;;;
+i2;@;o;	;;;"	list;
+i2;@0[u:Sass::Tree::IfNodeÏ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"	unit:
+@linei3:@options{ :
+@args[o;
+;{ ;	"ms-multibase-multiratio;
+i3;@
+;[o:Sass::Script::Variable	;	"multiple:@underscored_name"multiple;
+i3;@
+o;	;	"base-size;"base_size;
+i3;@
+o;	;	"
+ratio;"
+ratio;
+i3;@
+:@operator:eq;
+i3;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"px;
+i3;@
+0[o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+i4;@
+:
+@expro;
+;{ ;	"
+round;
+i4;@
+;[o;
+;{ ;	"ms-multibase-multiratio;
+i4;@
+;[o;	;	"multiple;"multiple;
+i4;@
+o;	;	"base-size;"base_size;
+i4;@
+o;	;	"
+ratio;"
+ratio;
+i4;@
+o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+i5;@:
+@expro;
+;{ ;	"ms-multibase-multiratio;
+i5;@;[o;	;	"multiple;"multiple;
+i5;@o;	;	"base-size;"base_size;
+i5;@o;	;	"
+ratio;"
+ratio;
+i5;@o;	;
+;;@	;[ ;["6// if multiple base-sizes are passed in as a list"
+"0// calculate values in using each base-size;i7;@u;#»[o:Sass::Script::Operation
+:@operand1o; 
+;o:Sass::Script::Funcall
+:@keywords{ :
+@name"type-of:
+@linei9:@options{ :
+@args[o:Sass::Script::Variable	;	"base-size:@underscored_name"base_size;
+i9;@:@operator:eq;
+i9;@:@operand2o:Sass::Script::String	:
+@type:string:@value"	list;
+i9;@;:and;
+i9;@;o; 
+;o;
+;{ ;	"type-of;
+i9;@;[o;	;	"
+ratio;"
+ratio;
+i9;@;;;
+i9;@;o;	;;;"number;
+i9;@0[u:Sass::Tree::IfNode÷[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"	unit:
+@linei::@options{ :
+@args[o;
+;{ ;	"ms-multibase;
+i:;@
+;[o:Sass::Script::Variable	;	"multiple:@underscored_name"multiple;
+i:;@
+o;	;	"base-size;"base_size;
+i:;@
+o;	;	"
+ratio;"
+ratio;
+i:;@
+:@operator:eq;
+i:;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"px;
+i:;@
+0[o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+i;;@
+:
+@expro;
+;{ ;	"
+round;
+i;;@
+;[o;
+;{ ;	"ms-multibase;
+i;;@
+;[o;	;	"multiple;"multiple;
+i;;@
+o;	;	"base-size;"base_size;
+i;;@
+o;	;	"
+ratio;"
+ratio;
+i;;@
+o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+i<;@:
+@expro;
+;{ ;	"ms-multibase;
+i<;@;[o;	;	"multiple;"multiple;
+i<;@o;	;	"base-size;"base_size;
+i<;@o;	;	"
+ratio;"
+ratio;
+i<;@o;	;
+;;@	;[ ;["2// if multiple ratios are passed in as a list"
+",// calculate values in using each ratio;i>;@u;#À[o:Sass::Script::Operation
+:@operand1o; 
+;o:Sass::Script::Funcall
+:@keywords{ :
+@name"type-of:
+@linei@:@options{ :
+@args[o:Sass::Script::Variable	;	"base-size:@underscored_name"base_size;
+i@;@:@operator:eq;
+i@;@:@operand2o:Sass::Script::String	:
+@type:string:@value"number;
+i@;@;:and;
+i@;@;o; 
+;o;
+;{ ;	"type-of;
+i@;@;[o;	;	"
+ratio;"
+ratio;
+i@;@;;;
+i@;@;o;	;;;"	list;
+i@;@0[u:Sass::Tree::IfNodeÿ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"	unit:
+@lineiA:@options{ :
+@args[o;
+;{ ;	"ms-multiratio;
+iA;@
+;[o:Sass::Script::Variable	;	"multiple:@underscored_name"multiple;
+iA;@
+o;	;	"base-size;"base_size;
+iA;@
+o;	;	"
+ratio;"
+ratio;
+iA;@
+:@operator:eq;
+iA;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"px;
+iA;@
+0[o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+iB;@
+:
+@expro;
+;{ ;	"
+round;
+iB;@
+;[o;
+;{ ;	"ms-multiratio;
+iB;@
+;[o;	;	"multiple;"multiple;
+iB;@
+o;	;	"base-size;"base_size;
+iB;@
+o;	;	"
+ratio;"
+ratio;
+iB;@
+o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+iC;@:
+@expro;
+;{ ;	"ms-multiratio;
+iC;@;[o;	;	"multiple;"multiple;
+iC;@o;	;	"base-size;"base_size;
+iC;@o;	;	"
+ratio;"
+ratio;
+iC;@o;	;
+;;@	;[ ;[":// If there are no lists just run the simple function;iE;@u;#˚[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"	unit:
+@lineiF:@options{ :
+@args[o; 
+;o;
+;{ ;	"exponent;
+iF;@
+;[o:Sass::Script::Variable	;	"
+ratio:@underscored_name"
+ratio;
+iF;@
+o;	;	"multiple;"multiple;
+iF;@
+:@operator:
+times;
+iF;@
+:@operand2o;	;	"base-size;"base_size;
+iF;@
+;:eq;
+iF;@
+;o:Sass::Script::String	:
+@type:string:@value"px;
+iF;@
+0[o:Sass::Tree::ReturnNode
+:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;
+iG;@
+:
+@expro;
+;{ ;	"
+round;
+iG;@
+;[o; 
+;o;
+;{ ;	"exponent;
+iG;@
+;[o;	;	"
+ratio;"
+ratio;
+iG;@
+o;	;	"multiple;"multiple;
+iG;@
+;;;
+iG;@
+;o;	;	"base-size;"base_size;
+iG;@
+o:Sass::Tree::ReturnNode
+;@	;[ ;iH;@;o;
+;o:Sass::Script::Funcall
+:@keywords{ ;"exponent;iH;@:
+@args[o;	;"
+ratio;"
+ratio;iH;@o;	;"multiple;"multiple;iH;@;:
+times;iH;@;o;	;"base-size;"base_size;iH;@;i&;@;'[[o;;"multiple;"multiple;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;	;
+;;@	;[ ;["D// calculate values in using each base-size / ratio combination;iK;@o;";"ms-multibase-multiratio;T;@	;[o;	;
+;;@	;[ ;["7// start with an empty list to place all values in;iM;@o;;"scale-values;@	;[ ;0;iN;@;o:Sass::Script::List	:@separator:
+space;[ ;iN;@o;	;
+;;@	;[ ;["3// make sure base sizes are in ascending order;iO;@o;;"base-size;@	;[ ;0;iP;@;o;%
+;&{ ;"sort-list;iP;@;'[o;	;"base-size;"base_size;iP;@o;	;
+;;@	;[ ;["#// take each base-size in turn;iQ;@o;;"k;@	;[ ;0;iR;@;o;;@;[ ;i;"1;iR;@o:Sass::Tree::WhileNode;T;@	;[o;	;
+;;@	;[ ;["8// add each $base-size to the list except the first;iT;@u;#Ä[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"k:@underscored_name"k:
+@lineiU:@options{ :@operator:gt;
+iU;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei:@original"1;
+iU;@
+0[o:Sass::Tree::VariableNode;"scale-values:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+iV;@
+:
+@expro:Sass::Script::Funcall
+:@keywords{ ;"append;
+iV;@
+:
+@args[o;	;"scale-values;	"scale_values;
+iV;@
+o;
+;{ ;"nth;
+iV;@
+;[o;	;"base-size;	"base_size;
+iV;@
+o;	;"k;	"k;
+iV;@
+o;	;
+;;@	;[ ;["// take each ratio in turn;iW;@o;;"j;@	;[ ;0;iX;@;o;;@;[ ;i;"1;iX;@o;,;T;@	;[o;	;
+;;@	;[ ;[")// reset $modular-scale for each set;iZ;@o;;"modular-scale;@	;[ ;0;i[;@;o;%
+;&{ ;"nth;i[;@;'[o;	;"base-size;"base_size;i[;@o;	;"k;"k;i[;@o;	;
+;;@	;[ ;["8// do the scale for each base-size using this ratio;i\;@u;#Ÿ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@linei]:@options{ :@operator:gt;
+i];@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+i];@
+0[o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["// up $multiple times"
+"+// and add the result to $scale-values;
+i^;@
+o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too;	;"multiple;	"multiple;
+i`;@
+:@exclusiveF;@;[o:Sass::Tree::VariableNode;"modular-scale;@;[ :@guarded0;
+ia;@
+:
+@expro; 
+;o:Sass::Script::Funcall
+:@keywords{ ;"exponent;
+ia;@
+:
+@args[o;!
+;"{ ;"nth;
+ia;@
+;#[o;	;"
+ratio;	"
+ratio;
+ia;@
+o;	;"j;	"j;
+ia;@
+o;	;"i;	"i;
+ia;@
+;:
+times;
+ia;@
+;o;!
+;"{ ;"nth;
+ia;@
+;#[o;	;"base-size;	"base_size;
+ia;@
+o;	;"k;	"k;
+ia;@
+o;;"scale-values;@;[ ;0;
+ib;@
+; o;!
+;"{ ;"append;
+ib;@
+;#[o;	;"scale-values;	"scale_values;
+ib;@
+o;	;"modular-scale;	"modular_scale;
+ib;@
+;
+i`:
+@fromo;;@;[ ;i;"1;
+i`;@
+;@
+o;;;;@;[ ;["D// and down until the value is lower than the lowest $base-size"
+"+// and add the result to $scale-values;
+ic;@
+o;;"i;@;[ ;0;
+ie;@
+; o;;@;[ ;i˙;"-1;
+ie;@
+o;;"modular-scale;@;[ ;0;
+if;@
+; o;!
+;"{ ;"nth;
+if;@
+;#[o;	;"base-size;	"base_size;
+if;@
+o;	;"k;	"k;
+if;@
+o:Sass::Tree::WhileNode;T;@;[o;;"modular-scale;@;[ ;0;
+ih;@
+; o; 
+;o;!
+;"{ ;"exponent;
+ih;@
+;#[o;!
+;"{ ;"nth;
+ih;@
+;#[o;	;"
+ratio;	"
+ratio;
+ih;@
+o;	;"j;	"j;
+ih;@
+o;	;"i;	"i;
+ih;@
+;;$;
+ih;@
+;o;!
+;"{ ;"nth;
+ih;@
+;#[o;	;"base-size;	"base_size;
+ih;@
+o;	;"k;	"k;
+ih;@
+o;;"scale-values;@;[ ;0;
+ii;@
+; o;!
+;"{ ;"append;
+ii;@
+;#[o;	;"scale-values;	"scale_values;
+ii;@
+o;	;"modular-scale;	"modular_scale;
+ii;@
+o;;"i;@;[ ;0;
+ij;@
+; o; 
+;o;	;"i;	"i;
+ij;@
+;:
+minus;
+ij;@
+;o;;@;[ ;i;"1;
+ij;@
+;
+ig;@
+; o; 
+;o;	;"modular-scale;	"modular_scale;
+ig;@
+;:gte;
+ig;@
+;o;!
+;"{ ;"nth;
+ig;@
+;#[o;	;"base-size;	"base_size;
+ig;@
+o;;@;[ ;i;"1;
+ig;@
+u;#µ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@lineik:@options{ :@operator:lt;
+ik;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+ik;@
+0[	o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["3// do the scale down for each set to below 1px;
+il;@
+o:Sass::Tree::VariableNode;"i;@;[ :@guarded0;
+im;@
+:
+@expro;;@;[ ;i˙;"-1;
+im;@
+o;;"modular-scale;@;[ ;0;
+in;@
+;o:Sass::Script::Funcall
+:@keywords{ ;"nth;
+in;@
+:
+@args[o;	;"base-size;	"base_size;
+in;@
+o;	;"k;	"k;
+in;@
+o:Sass::Tree::WhileNode:@has_childrenT;@;[o;;"modular-scale;@;[ ;0;
+ip;@
+;o; 
+;o;
+;{ ;"exponent;
+ip;@
+;[o;
+;{ ;"nth;
+ip;@
+;[o;	;"
+ratio;	"
+ratio;
+ip;@
+o;	;"j;	"j;
+ip;@
+o;	;"i;	"i;
+ip;@
+;:
+times;
+ip;@
+;o;
+;{ ;"nth;
+ip;@
+;[o;	;"base-size;	"base_size;
+ip;@
+o;	;"k;	"k;
+ip;@
+o;;"scale-values;@;[ ;0;
+iq;@
+;o;
+;{ ;"append;
+iq;@
+;[o;	;"scale-values;	"scale_values;
+iq;@
+o;	;"modular-scale;	"modular_scale;
+iq;@
+o;;"i;@;[ ;0;
+ir;@
+;o; 
+;o;	;"i;	"i;
+ir;@
+;:
+minus;
+ir;@
+;o;;@;[ ;i;"1;
+ir;@
+;
+io;@
+;o; 
+;o;	;"modular-scale;	"modular_scale;
+io;@
+;:gt;
+io;@
+;o;;@;[ ;i;"1;
+io;@
+o;;"j;@	;[ ;0;is;@;o;
+;o;	;"j;"j;is;@;:	plus;is;@;o;;@;[ ;i;"1;is;@;iY;@;o;
+;o;	;"j;"j;iY;@;:lte;iY;@;o;%
+;&{ ;"length;iY;@;'[o;	;"
+ratio;"
+ratio;iY;@o;;"k;@	;[ ;0;it;@;o;
+;o;	;"k;"k;it;@;;-;it;@;o;;@;[ ;i;"1;it;@;iS;@;o;
+;o;	;"k;"k;iS;@;;.;iS;@;o;%
+;&{ ;"length;iS;@;'[o;	;"base-size;"base_size;iS;@o;	;
+;;@	;[ ;[",// return trimmed and sorted final list;iu;@o;$
+;@	;[ ;iv;@;o;%
+;&{ ;"trim-sort;iv;@;'[o;	;"multiple;"multiple;iv;@o;	;"scale-values;"scale_values;iv;@o;	;"base-size;"base_size;iv;@;iL;@;'[[o;;"multiple;"multiple;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;	;
+;;@	;[ ;["0// calculate values in using each base-size;iy;@o;";"ms-multibase;T;@	;[o;	;
+;;@	;[ ;["7// start with an empty list to place all values in;i{;@o;;"scale-values;@	;[ ;0;i|;@;o;)	;*;+;[ ;i|;@o;	;
+;;@	;[ ;["3// make sure base sizes are in ascending order;i};@o;;"base-size;@	;[ ;0;i~;@;o;%
+;&{ ;"sort-list;i~;@;'[o;	;"base-size;"base_size;i~;@o;	;
+;;@	;[ ;["#// take each base-size in turn;i;@o;;"k;@	;[ ;0;i{;@;o;;@;[ ;i;"1;i{;@o;,;T;@	;[o;	;
+;;@	;[ ;["8// add each $base-size to the list except the first;i};@u;#â[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"k:@underscored_name"k:
+@linei~:@options{ :@operator:gt;
+i~;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei:@original"1;
+i~;@
+0[o:Sass::Tree::VariableNode;"scale-values:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+i;@
+:
+@expro:Sass::Script::Funcall
+:@keywords{ ;"append;
+i;@
+:
+@args[o;	;"scale-values;	"scale_values;
+i;@
+o;
+;{ ;"nth;
+i;@
+;[o;	;"base-size;	"base_size;
+i;@
+o;	;"k;	"k;
+i;@
+o;	;
+;;@	;[ ;[")// reset $modular-scale for each set;iÄ;@o;;"modular-scale;@	;[ ;0;iÅ;@;o;%
+;&{ ;"nth;iÅ;@;'[o;	;"base-size;"base_size;iÅ;@o;	;"k;"k;iÅ;@o;	;
+;;@	;[ ;["8// do the scale for each base-size using this ratio;iÇ;@u;#ß[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@lineiÉ:@options{ :@operator:gt;
+iÉ;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+iÉ;@
+0[o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["// up $multiple times"
+"+// and add the result to $scale-values;
+iÑ;@
+o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too;	;"multiple;	"multiple;
+iÜ;@
+:@exclusiveF;@;[o:Sass::Tree::VariableNode;"modular-scale;@;[ :@guarded0;
+iá;@
+:
+@expro; 
+;o:Sass::Script::Funcall
+:@keywords{ ;"exponent;
+iá;@
+:
+@args[o;	;"
+ratio;	"
+ratio;
+iá;@
+o;	;"i;	"i;
+iá;@
+;:
+times;
+iá;@
+;o;!
+;"{ ;"nth;
+iá;@
+;#[o;	;"base-size;	"base_size;
+iá;@
+o;	;"k;	"k;
+iá;@
+o;;"scale-values;@;[ ;0;
+ià;@
+; o;!
+;"{ ;"append;
+ià;@
+;#[o;	;"scale-values;	"scale_values;
+ià;@
+o;	;"modular-scale;	"modular_scale;
+ià;@
+;
+iÜ:
+@fromo;;@;[ ;i;"1;
+iÜ;@
+;@
+o;;;;@;[ ;["D// and down until the value is lower than the lowest $base-size"
+"+// and add the result to $scale-values;
+iâ;@
+o;;"i;@;[ ;0;
+iã;@
+; o;;@;[ ;i˙;"-1;
+iã;@
+o;;"modular-scale;@;[ ;0;
+iå;@
+; o;!
+;"{ ;"nth;
+iå;@
+;#[o;	;"base-size;	"base_size;
+iå;@
+o;	;"k;	"k;
+iå;@
+o:Sass::Tree::WhileNode;T;@;[o;;"modular-scale;@;[ ;0;
+ié;@
+; o; 
+;o;!
+;"{ ;"exponent;
+ié;@
+;#[o;	;"
+ratio;	"
+ratio;
+ié;@
+o;	;"i;	"i;
+ié;@
+;;$;
+ié;@
+;o;!
+;"{ ;"nth;
+ié;@
+;#[o;	;"base-size;	"base_size;
+ié;@
+o;	;"k;	"k;
+ié;@
+o;;"scale-values;@;[ ;0;
+iè;@
+; o;!
+;"{ ;"append;
+iè;@
+;#[o;	;"scale-values;	"scale_values;
+iè;@
+o;	;"modular-scale;	"modular_scale;
+iè;@
+o;;"i;@;[ ;0;
+iê;@
+; o; 
+;o;	;"i;	"i;
+iê;@
+;:
+minus;
+iê;@
+;o;;@;[ ;i;"1;
+iê;@
+;
+iç;@
+; o; 
+;o;	;"modular-scale;	"modular_scale;
+iç;@
+;:gte;
+iç;@
+;o;!
+;"{ ;"nth;
+iç;@
+;#[o;	;"base-size;	"base_size;
+iç;@
+o;;@;[ ;i;"1;
+iç;@
+u;#¢[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@lineië:@options{ :@operator:lt;
+ië;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+ië;@
+0[	o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["3// do the scale down for each set to below 1px;
+ií;@
+o:Sass::Tree::VariableNode;"i;@;[ :@guarded0;
+iì;@
+:
+@expro;;@;[ ;i˙;"-1;
+iì;@
+o;;"modular-scale;@;[ ;0;
+iî;@
+;o:Sass::Script::Funcall
+:@keywords{ ;"nth;
+iî;@
+:
+@args[o;	;"base-size;	"base_size;
+iî;@
+o;	;"k;	"k;
+iî;@
+o:Sass::Tree::WhileNode:@has_childrenT;@;[o;;"modular-scale;@;[ ;0;
+iñ;@
+;o; 
+;o;
+;{ ;"exponent;
+iñ;@
+;[o;	;"
+ratio;	"
+ratio;
+iñ;@
+o;	;"i;	"i;
+iñ;@
+;:
+times;
+iñ;@
+;o;
+;{ ;"nth;
+iñ;@
+;[o;	;"base-size;	"base_size;
+iñ;@
+o;	;"k;	"k;
+iñ;@
+o;;"scale-values;@;[ ;0;
+ió;@
+;o;
+;{ ;"append;
+ió;@
+;[o;	;"scale-values;	"scale_values;
+ió;@
+o;	;"modular-scale;	"modular_scale;
+ió;@
+o;;"i;@;[ ;0;
+iò;@
+;o; 
+;o;	;"i;	"i;
+iò;@
+;:
+minus;
+iò;@
+;o;;@;[ ;i;"1;
+iò;@
+;
+iï;@
+;o; 
+;o;	;"modular-scale;	"modular_scale;
+iï;@
+;:gt;
+iï;@
+;o;;@;[ ;i;"1;
+iï;@
+o;;"k;@	;[ ;0;iô;@;o;
+;o;	;"k;"k;iô;@;;-;iô;@;o;;@;[ ;i;"1;iô;@;i|;@;o;
+;o;	;"k;"k;i|;@;;.;i|;@;o;%
+;&{ ;"length;i|;@;'[o;	;"base-size;"base_size;i|;@o;	;
+;;@	;[ ;[",// return trimmed and sorted final list;iö;@o;$
+;@	;[ ;iõ;@;o;%
+;&{ ;"trim-sort;iõ;@;'[o;	;"multiple;"multiple;iõ;@o;	;"scale-values;"scale_values;iõ;@o;	;"base-size;"base_size;iõ;@;iz;@;'[[o;;"multiple;"multiple;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;	;
+;;@	;[ ;[",// calculate values in using each ratio;iû;@o;";"ms-multiratio;T;@	;[o;	;
+;;@	;[ ;["7// start with an empty list to place all values in;i†;@o;;"scale-values;@	;[ ;0;i°;@;o;)	;*;+;[ ;i°;@o;	;
+;;@	;[ ;["9// If $multiple is a positive integer (up the scale);i¢;@u;#<[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@linei£:@options{ :@operator:gt;
+i£;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+i£;@
+0[o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["// take each ratio in turn;
+i§;@
+o:Sass::Tree::VariableNode;"j;@;[ :@guarded0;
+i•;@
+:
+@expro;;@;[ ;i;"1;
+i•;@
+o:Sass::Tree::WhileNode:@has_childrenT;@;[
+o;;;;@;[ ;[")// reset $modular-scale for each set;
+iß;@
+o;;"modular-scale;@;[ ;0;
+i®;@
+;o;	;"base-size;	"base_size;
+i®;@
+o;;;;@;[ ;["\// do the scale using this ratio thru the multiple, and add the result to $scale-values;
+i©;@
+o:Sass::Tree::ForNode:	@var"i;T:@too;	;"multiple;	"multiple;
+i™;@
+:@exclusiveF;@;[o;;"modular-scale;@;[ ;0;
+i´;@
+;o; 
+;o:Sass::Script::Funcall
+:@keywords{ ;"exponent;
+i´;@
+:
+@args[o;"
+;#{ ;"nth;
+i´;@
+;$[o;	;"
+ratio;	"
+ratio;
+i´;@
+o;	;"j;	"j;
+i´;@
+o;	;"i;	"i;
+i´;@
+;:
+times;
+i´;@
+;o;	;"base-size;	"base_size;
+i´;@
+o;;"scale-values;@;[ ;0;
+i¨;@
+;o;"
+;#{ ;"append;
+i¨;@
+;$[o;	;"scale-values;	"scale_values;
+i¨;@
+o;	;"modular-scale;	"modular_scale;
+i¨;@
+;
+i™:
+@fromo;;@;[ ;i;"1;
+i™;@
+;@
+o;;"j;@;[ ;0;
+i≠;@
+;o; 
+;o;	;"j;	"j;
+i≠;@
+;:	plus;
+i≠;@
+;o;;@;[ ;i;"1;
+i≠;@
+;
+i¶;@
+;o; 
+;o;	;"j;	"j;
+i¶;@
+;:lte;
+i¶;@
+;o;"
+;#{ ;"length;
+i¶;@
+;$[o;	;"
+ratio;	"
+ratio;
+i¶;@
+o;;;;@;[ ;["// sort acsending;
+iÆ;@
+o;;"scale-values;@;[ ;0;
+iØ;@
+;o;"
+;#{ ;"sort-list;
+iØ;@
+;$[o;	;"scale-values;	"scale_values;
+iØ;@
+o;;;;@;[ ;["3// return the final value using the laced list;
+i∞;@
+o:Sass::Tree::ReturnNode
+;@;[ ;
+i±;@
+;o;"
+;#{ ;"nth;
+i±;@
+;$[o;	;"scale-values;	"scale_values;
+i±;@
+o;	;"multiple;	"multiple;
+i±;@
+o;	;
+;;@	;[ ;[";// If $multiple is a negative integer (down the scale);i≤;@u;#	[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@linei≥:@options{ :@operator:lt;
+i≥;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+i≥;@
+0[o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["// take each ratio in turn;
+i¥;@
+o:Sass::Tree::VariableNode;"j;@;[ :@guarded0;
+iµ;@
+:
+@expro;;@;[ ;i;"1;
+iµ;@
+o:Sass::Tree::WhileNode:@has_childrenT;@;[
+o;;;;@;[ ;[")// reset $modular-scale for each set;
+i∑;@
+o;;"modular-scale;@;[ ;0;
+i∏;@
+;o;	;"base-size;	"base_size;
+i∏;@
+o;;;;@;[ ;["\// do the scale using this ratio thru the multiple, and add the result to $scale-values;
+iπ;@
+o:Sass::Tree::ForNode:	@var"i;T:@too; 
+;o;	;"multiple;	"multiple;
+i∫;@
+;:
+times;
+i∫;@
+;o;;@;[ ;i˙;"-1;
+i∫;@
+:@exclusiveF;@;[o;;"modular-scale;@;[ ;0;
+iª;@
+;o; 
+;o:Sass::Script::Funcall
+:@keywords{ ;"exponent;
+iª;@
+:
+@args[o;#
+;${ ;"nth;
+iª;@
+;%[o;	;"
+ratio;	"
+ratio;
+iª;@
+o;	;"j;	"j;
+iª;@
+o:!Sass::Script::UnaryOperation	;:
+minus:@operando;	;"i;	"i;
+iª;@
+;
+iª;@
+;;!;
+iª;@
+;o;	;"base-size;	"base_size;
+iª;@
+o;;"scale-values;@;[ ;0;
+iº;@
+;o;#
+;${ ;"append;
+iº;@
+;%[o;	;"scale-values;	"scale_values;
+iº;@
+o;	;"modular-scale;	"modular_scale;
+iº;@
+;
+i∫:
+@fromo;;@;[ ;i;"1;
+i∫;@
+;@
+o;;"j;@;[ ;0;
+iΩ;@
+;o; 
+;o;	;"j;	"j;
+iΩ;@
+;:	plus;
+iΩ;@
+;o;;@;[ ;i;"1;
+iΩ;@
+;
+i∂;@
+;o; 
+;o;	;"j;	"j;
+i∂;@
+;:lte;
+i∂;@
+;o;#
+;${ ;"length;
+i∂;@
+;%[o;	;"
+ratio;	"
+ratio;
+i∂;@
+o;;;;@;[ ;["// sort decending;
+iæ;@
+o;;"scale-values;@;[ ;0;
+iø;@
+;o;#
+;${ ;"sort-list;
+iø;@
+;%[o;	;"scale-values;	"scale_values;
+iø;@
+o:Sass::Script::String	;:string;"dec;
+iø;@
+o;;;;@;[ ;["3// return the final value using the laced list;
+i¿;@
+o:Sass::Tree::ReturnNode
+;@;[ ;
+i¡;@
+;o;#
+;${ ;"nth;
+i¡;@
+;%[o;	;"scale-values;	"scale_values;
+i¡;@
+o; 
+;o;	;"multiple;	"multiple;
+i¡;@
+;;!;
+i¡;@
+;o;;@;[ ;i˙;"-1;
+i¡;@
+;iü;@;'[[o;;"multiple;"multiple;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;	;
+;;@	;[ ;["$// trim and sort the final list;iƒ;@o;";"trim-sort;T;@	;[u;#o	[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"multiple:@underscored_name"multiple:
+@linei∆:@options{ :@operator:gt;
+i∆;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei :@original"0;
+i∆;@
+u:Sass::Tree::IfNodeÆ[00[o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@value["<// trim list so we can count from the lowest $base-size:
+@lineiŒ:@options{ o:Sass::Tree::VariableNode:
+@name"scale-values;@;	[ :@guarded0;iœ;@:
+@expro:Sass::Script::Funcall
+:@keywords{ ;"trim-list;iœ;@:
+@args[o:Sass::Script::Variable	;"scale-values:@underscored_name"scale_values;iœ;@o;
+;{ ;"nth;iœ;@;[o;	;"base-size;"base_size;iœ;@o:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;
+i:@original"1;iœ;@o:Sass::Script::String	;:string;
+"dec;iœ;@o; ;;;@;	[ ;
+["// sort acsending;i–;@o;;"scale-values;@;	[ ;0;i—;@;o;
+;{ ;"sort-list;i—;@;[o;	;"scale-values;"scale_values;i—;@o;	;;;
+"dec;i—;@o; ;;;@;	[ ;
+["3// return the final value using the laced list;i“;@o:Sass::Tree::ReturnNode
+;@;	[ ;i”;@;o;
+;{ ;"nth;i”;@;[o;	;"scale-values;"scale_values;i”;@o:!Sass::Script::UnaryOperation	:@operator:
+minus:@operando;	;"multiple;"multiple;i”;@;i”;@[o:Sass::Tree::CommentNode:
+@type:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["<// trim list so we can count from the lowest $base-size;
+i«;@
+o:Sass::Tree::VariableNode;"scale-values;@;[ :@guarded0;
+i»;@
+:
+@expro:Sass::Script::Funcall
+:@keywords{ ;"trim-list;
+i»;@
+:
+@args[o;	;"scale-values;	"scale_values;
+i»;@
+o;
+;{ ;"nth;
+i»;@
+;[o;	;"base-size;	"base_size;
+i»;@
+o;;@;[ ;i;"1;
+i»;@
+o;;;;@;[ ;["// sort acsending;
+i…;@
+o;;"scale-values;@;[ ;0;
+i ;@
+;o;
+;{ ;"sort-list;
+i ;@
+;[o;	;"scale-values;	"scale_values;
+i ;@
+o;;;;@;[ ;["3// return the final value using the laced list;
+iÀ;@
+o:Sass::Tree::ReturnNode
+;@;[ ;
+iÃ;@
+;o;
+;{ ;"nth;
+iÃ;@
+;[o;	;"scale-values;	"scale_values;
+iÃ;@
+o;	;"multiple;	"multiple;
+iÃ;@
+;i≈;@;'[[o;;"multiple;"multiple;@0[o;;"scale-values;"scale_values;@0[o;;"base-size;"base_size;@0o;	;
+;;@	;[ ;["N/////////////////////////////////////////////////////////////////////////;i÷;@o;	;
+;;@	;[ ;["// Shortcut;iÿ;@o;";"ms;T;@	;[o;	;
+;;@	;[ ;["8// Return the value from the Modular Scale function;i⁄;@o;$
+;@	;[ ;i€;@;o;%
+;&{ ;"modular-scale;i€;@;'[o;	;"multiple;"multiple;i€;@o;	;"base-size;"base_size;i€;@o;	;"
+ratio;"
+ratio;i€;@;iŸ;@;'[[o;;"multiple;"multiple;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;	;
+;;@	;[ ;["// Classes Mixin;i›;@o:Sass::Tree::MixinDefNode;"modular-scale-classes;T;@	;[o;	;
+;;@	;[ ;["R// Loop from 0 through the value of $multiple and generate a range of classes;i‡;@o:Sass::Tree::ForNode:	@var"i;T:@too;	;"multiple;"multiple;i·;@:@exclusiveF;@	;[o:Sass::Tree::RuleNode;T:
+@tabsi ;@	;[o;	;
+;;@	;[ ;["P// Print the $property and return the value from the Modular Scale function;i„;@o:Sass::Tree::PropNode;[" o;	;"property;"property;i‰;@" :@prop_syntax:new;5i ;@	;[ ;o;%
+;&{ ;"modular-scale;i‰;@;'[o;	;"i;"i;i‰;@o;	;"base-size;"base_size;i‰;@o;	;"
+ratio;"
+ratio;i‰;@;i‰;@;i‚:
+@rule[
+".o;	;"class-slug;"class_slug;i‚;@"-o;	;"i;"i;i‚;@" ;@;i·:
+@fromo;;@;[ ;i ;"0;i·;@;@;iﬁ;@;'[
+[o;;"multiple;"multiple;@0[o;;"property;"property;@0[o;;"class-slug;"class_slug;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;/;"ms-classes;T;@	;[o:Sass::Tree::MixinNode;&{ ;"modular-scale-classes;@	;[ ;iÁ;@;'[
+o;	;"multiple;"multiple;iÁ;@o;	;"property;"property;iÁ;@o;	;"class-slug;"class_slug;iÁ;@o;	;"base-size;"base_size;iÁ;@o;	;"
+ratio;"
+ratio;iÁ;@;iÊ;@;'[
+[o;;"multiple;"multiple;@0[o;;"property;"property;@0[o;;"class-slug;"class_slug;@0[o;;"base-size;"base_size;@0[o;;"
+ratio;"
+ratio;@0o;	;
+;;@	;[ ;[" // Write Modular Scale List;iÈ;@o;";"modular-scale-list;T;@	;[o;;"ms-list;@	;[ ;0;iÎ;@;o;%
+;&{ ;"unquote;iÎ;@;'[o; 	;
+:string;"MS-LIST:;iÎ;@o;0;1"i;T;2o;	;"finish;"finish;iÏ;@;3F;@	;[o;;"ms-list;@	;[ ;0;iÌ;@;o;%
+;&{ ;"append;iÌ;@;'[o;	;"ms-list;"ms_list;iÌ;@o;%
+;&{ ;"ms;iÌ;@;'[o;	;"i;"i;iÌ;@o;	;"base-size;"base_size;iÌ;@o;	;"
+ratio;"
+ratio;iÌ;@;iÏ;:o;	;"
+start;"
+start;iÏ;@;@o;$
+;@	;[ ;iÓ;@;o;	;"ms-list;"ms_list;iÓ;@;iÍ;@;'[	[o;;"
+start;"
+start;@o;;@;[ ;i ;"0;iÍ;@[o;;"finish;"finish;@o;;@;[ ;i;"20;iÍ;@[o;;"base-size;"base_size;@o;	;"base-size;"base_size;iÍ;@[o;;"
+ratio;"
+ratio;@o;	;"
+ratio;"
+ratio;iÍ;@o;";"ms-list;T;@	;[o;$
+;@	;[ ;iÒ;@;o;%
+;&{ ;"modular-scale-list;iÒ;@;'[	o;	;"
+start;"
+start;iÒ;@o;	;"finish;"finish;iÒ;@o;	;"base-size;"base_size;iÒ;@o;	;"
+ratio;"
+ratio;iÒ;@;i;@;'[	[o;;"
+start;"
+start;@o;;@;[ ;i ;"0;i;@[o;;"finish;"finish;@o;;@;[ ;i;"20;i;@[o;;"base-size;"base_size;@o;	;"base-size;"base_size;i;@[o;;"
+ratio;"
+ratio;@o;	;"
+ratio;"
+ratio;i;@o;/;"modular-scale-list;T;@	;[o:Sass::Tree::DebugNode
+;@	;[ ;iÙ;@;o;%
+;&{ ;"modular-scale-list;iÙ;@;'[	o;	;"
+start;"
+start;iÙ;@o;	;"finish;"finish;iÙ;@o;	;"base-size;"base_size;iÙ;@o;	;"
+ratio;"
+ratio;iÙ;@;iÛ;@;'[	[o;;"
+start;"
+start;@o;;@;[ ;i ;"0;iÛ;@[o;;"finish;"finish;@o;;@;[ ;i;"20;iÛ;@[o;;"base-size;"base_size;@o;	;"base-size;"base_size;iÛ;@[o;;"
+ratio;"
+ratio;@o;	;"
+ratio;"
+ratio;iÛ;@o;/;"ms-list;T;@	;[o;=
+;@	;[ ;i˜;@;o;%
+;&{ ;"modular-scale-list;i˜;@;'[	o;	;"
+start;"
+start;i˜;@o;	;"finish;"finish;i˜;@o;	;"base-size;"base_size;i˜;@o;	;"
+ratio;"
+ratio;i˜;@;iˆ;@;'[	[o;;"
+start;"
+start;@o;;@;[ ;i ;"0;iˆ;@[o;;"finish;"finish;@o;;@;[ ;i;"20;iˆ;@[o;;"base-size;"base_size;@o;	;"base-size;"base_size;iˆ;@[o;;"
+ratio;"
+ratio;@o;	;"
+ratio;"
+ratio;iˆ;@o;	;
+;;@	;[ ;["N/////////////////////////////////////////////////////////////////////////;i˘;@o;	;
+;;@	;[ ;["// Sass exponent support;i¸;@o;";"exponent;T;@	;[o;	;
+;;@	;[ ;["// reset value;i˛;@o;;"
+value;@	;[ ;0;iˇ;@;o;	;"	base;"	base;iˇ;@o;	;
+;;@	;[ ;[")// positive intergers get multiplied;i ;@u;#ƒ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"exponent:@underscored_name"exponent:
+@linei:@options{ :@operator:gt;
+i;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei:@original"1;
+i;@
+0[o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too;	;"exponent;	"exponent;
+i;@
+:@exclusiveF:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[o:Sass::Tree::VariableNode;"
+value;@;[ :@guarded0;
+i;@
+:
+@expro; 
+;o;	;"
+value;	"
+value;
+i;@
+;:
+times;
+i;@
+;o;	;"	base;	"	base;
+i;@
+;
+i:
+@fromo;;@;[ ;i;"2;
+i;@
+;@
+o;	;
+;;@	;[ ;["G// negitive intergers get divided. A number divided by itself is 1;i;@u;#ˇ[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"exponent:@underscored_name"exponent:
+@linei:@options{ :@operator:lt;
+i;@
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei:@original"1;
+i;@
+0[o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too:!Sass::Script::UnaryOperation	;:
+minus:@operando;	;"exponent;	"exponent;
+i;@
+;
+i;@
+:@exclusiveF:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[o:Sass::Tree::VariableNode;"
+value;@;[ :@guarded0;
+i;@
+:
+@expro; 
+;o;	;"
+value;	"
+value;
+i;@
+;:div;
+i;@
+;o;	;"	base;	"	base;
+i;@
+;
+i:
+@fromo;;@;[ ;i ;"0;
+i;@
+;@
+o;	;
+;;@	;[ ;["%// return the last value written;i;@o;$
+;@	;[ ;i	;@;o;	;"
+value;"
+value;i	;@;i˝;@;'[[o;;"	base;"	base;@0[o;;"exponent;"exponent;@0o;	;
+;;@	;[ ;["!// Sass list sorting support;i;@o;";"sort-list;T;@	;[o;	;
+;;@	;[ ;[">// built-in list sorting in Sass would make this go away."
+"J// declare some empty lists to put our new order and temporary values;i;@o;;"new-order;@	;[ ;0;i;@;o;)	;*;+;[ ;i;@o;;"	temp;@	;[ ;0;i;@;o;)	;*;+;[ ;i;@o;	;
+;;@	;[ ;["-// fill $temp with the contents of $list;i;@o;;"	temp;@	;[ ;0;i;@;o;%
+;&{ ;"	join;i;@;'[o;	;"	temp;"	temp;i;@o;	;"	list;"	list;i;@o;	;
+;;@	;[ ;["// if sorting ascending;i;@u;#0[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"dir:@underscored_name"dir:
+@linei:@options{ :@operator:eq;
+i;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"asc;
+i;@
+0[o:Sass::Tree::CommentNode;:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["(// loop through all values in $list;
+i;@
+o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too:Sass::Script::Funcall
+:@keywords{ ;"length;
+i;@
+:
+@args[o;	;"	list;	"	list;
+i;@
+:@exclusiveF;@;[o;;;;@;[ ;["0// impossibly high starter value to compare;
+i;@
+o:Sass::Tree::VariableNode;"low;@;[ :@guarded0;
+i;@
+:
+@expro:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;i@B:@original"1000000;
+i;@
+o;;;;@;[ ;["'// check for lowest value in $temp;
+i;@
+o;;"j;T;o;
+;{ ;"length;
+i;@
+;[o;	;"	temp;	"	temp;
+i;@
+;F;@;[u:Sass::Tree::IfNode$[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"nth:
+@linei:@options{ :
+@args[o:Sass::Script::Variable	;	"	temp:@underscored_name"	temp;
+i;@
+o;	;	"j;"j;
+i;@
+:@operator:lt;
+i;@
+:@operand2o;	;	"low;"low;
+i;@
+0[o:Sass::Tree::VariableNode;	"low:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+i;@
+:
+@expro;
+;{ ;	"nth;
+i;@
+;[o;	;	"	temp;"	temp;
+i;@
+o;	;	"j;"j;
+i;@
+;
+i:
+@fromo;";#@%;$[ ;i;%"1;
+i;@
+;@
+o;;;;@;[ ;["&// add lowest value to $new-order;
+i;@
+o;;"new-order;@;[ ; 0;
+i;@
+;!o;
+;{ ;"append;
+i;@
+;[o;	;"new-order;	"new_order;
+i;@
+o;	;"low;	"low;
+i;@
+o;;;;@;[ ;["+// empty $temp for the next comparison;
+i ;@
+o;;"	temp;@;[ ; 0;
+i!;@
+;!o:Sass::Script::List	:@separator:
+space;[ ;
+i!;@
+o;;;;@;[ ;["7// re-populate $temp with remaining values to sort;
+i";@
+o;;"k;T;o;
+;{ ;"length;
+i#;@
+;[o;	;"	list;	"	list;
+i#;@
+;F;@;[u;&c[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"nth:
+@linei$:@options{ :
+@args[o:Sass::Script::Variable	;	"	list:@underscored_name"	list;
+i$;@
+o;	;	"k;"k;
+i$;@
+:@operator:gt;
+i$;@
+:@operand2o;	;	"low;"low;
+i$;@
+0[o:Sass::Tree::VariableNode;	"	temp:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+i%;@
+:
+@expro;
+;{ ;	"append;
+i%;@
+;[o;	;	"	temp;"	temp;
+i%;@
+o;
+;{ ;	"nth;
+i%;@
+;[o;	;	"	list;"	list;
+i%;@
+o;	;	"k;"k;
+i%;@
+;
+i#;'o;";#@%;$[ ;i;%"1;
+i#;@
+;@
+;
+i;'o;";#@%;$[ ;i;%"1;
+i;@
+;@
+u;#÷
+[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"dir:@underscored_name"dir:
+@linei&:@options{ :@operator:eq;
+i&;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"dec;
+i&;@
+0[o:Sass::Tree::CommentNode;:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["(// loop through all values in $list;
+i';@
+o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too:Sass::Script::Funcall
+:@keywords{ ;"length;
+i(;@
+:
+@args[o;	;"	list;	"	list;
+i(;@
+:@exclusiveF;@;[o;;;;@;[ ;["// 0 starter value;
+i);@
+o:Sass::Tree::VariableNode;"	high;@;[ :@guarded0;
+i*;@
+:
+@expro:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;i :@original"0;
+i*;@
+o;;;;@;[ ;["(// check for highest value in $temp;
+i+;@
+o;;"j;T;o;
+;{ ;"length;
+i,;@
+;[o;	;"	temp;	"	temp;
+i,;@
+;F;@;[u:Sass::Tree::IfNode'[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"nth:
+@linei-:@options{ :
+@args[o:Sass::Script::Variable	;	"	temp:@underscored_name"	temp;
+i-;@
+o;	;	"j;"j;
+i-;@
+:@operator:gt;
+i-;@
+:@operand2o;	;	"	high;"	high;
+i-;@
+0[o:Sass::Tree::VariableNode;	"	high:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+i.;@
+:
+@expro;
+;{ ;	"nth;
+i.;@
+;[o;	;	"	temp;"	temp;
+i.;@
+o;	;	"j;"j;
+i.;@
+;
+i,:
+@fromo;";#@%;$[ ;i;%"1;
+i,;@
+;@
+o;;"new-order;@;[ ; 0;
+i/;@
+;!o;
+;{ ;"append;
+i/;@
+;[o;	;"new-order;	"new_order;
+i/;@
+o;	;"	high;	"	high;
+i/;@
+o;;;;@;[ ;["+// empty $temp for the next comparison;
+i0;@
+o;;"	temp;@;[ ; 0;
+i1;@
+;!o:Sass::Script::List	:@separator:
+space;[ ;
+i1;@
+o;;;;@;[ ;["7// re-populate $temp with remaining values to sort;
+i2;@
+o;;"k;T;o;
+;{ ;"length;
+i3;@
+;[o;	;"	list;	"	list;
+i3;@
+;F;@;[u;&e[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"nth:
+@linei4:@options{ :
+@args[o:Sass::Script::Variable	;	"	list:@underscored_name"	list;
+i4;@
+o;	;	"k;"k;
+i4;@
+:@operator:lt;
+i4;@
+:@operand2o;	;	"	high;"	high;
+i4;@
+0[o:Sass::Tree::VariableNode;	"	temp:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+i5;@
+:
+@expro;
+;{ ;	"append;
+i5;@
+;[o;	;	"	temp;"	temp;
+i5;@
+o;
+;{ ;	"nth;
+i5;@
+;[o;	;	"	list;"	list;
+i5;@
+o;	;	"k;"k;
+i5;@
+;
+i3;'o;";#@%;$[ ;i;%"1;
+i3;@
+;@
+;
+i(;'o;";#@%;$[ ;i;%"1;
+i(;@
+;@
+o;$
+;@	;[ ;i6;@;o;	;"new-order;"new_order;i6;@;i;@;'[[o;;"	list;"	list;@0[o;;"dir;"dir;@o; 	;
+;<;"asc;i;@o;	;
+;;@	;[ ;[""// Sass list trimming support;i9;@o;";"trim-list;T;@	;[o;	;
+;;@	;[ ;["?// built-in list trimming in Sass would make this go away."
+":// declare some empty lists to put our trimmed values;i;;@o;;"trimmed;@	;[ ;0;i=;@;o;)	;*;+;[ ;i=;@o;	;
+;;@	;[ ;["// if sorting ascending;i>;@u;#U[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"dir:@underscored_name"dir:
+@linei?:@options{ :@operator:eq;
+i?;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"asc;
+i?;@
+0[o:Sass::Tree::CommentNode;:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["(// loop through all values in $list;
+i@;@
+o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too:Sass::Script::Funcall
+:@keywords{ ;"length;
+iA;@
+:
+@args[o;	;"	list;	"	list;
+iA;@
+:@exclusiveF;@;[u:Sass::Tree::IfNodeq[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"nth:
+@lineiB:@options{ :
+@args[o:Sass::Script::Variable	;	"	list:@underscored_name"	list;
+iB;@
+o;	;	"i;"i;
+iB;@
+:@operator:gte;
+iB;@
+:@operand2o;	;	"
+start;"
+start;
+iB;@
+0[o:Sass::Tree::VariableNode;	"trimmed:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+iC;@
+:
+@expro;
+;{ ;	"append;
+iC;@
+;[o;	;	"trimmed;"trimmed;
+iC;@
+o;
+;{ ;	"nth;
+iC;@
+;[o;	;	"	list;"	list;
+iC;@
+o;	;	"i;"i;
+iC;@
+;
+iA:
+@fromo:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;i:@original"1;
+iA;@
+;@
+u;#U[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Variable	:
+@name"dir:@underscored_name"dir:
+@lineiD:@options{ :@operator:eq;
+iD;@
+:@operand2o:Sass::Script::String	:
+@type:string:@value"dec;
+iD;@
+0[o:Sass::Tree::CommentNode;:silent:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ ;["(// loop through all values in $list;
+iE;@
+o:Sass::Tree::ForNode:	@var"i:@has_childrenT:@too:Sass::Script::Funcall
+:@keywords{ ;"length;
+iF;@
+:
+@args[o;	;"	list;	"	list;
+iF;@
+:@exclusiveF;@;[u:Sass::Tree::IfNodeq[o:Sass::Script::Operation
+:@operand1o:Sass::Script::Funcall
+:@keywords{ :
+@name"nth:
+@lineiG:@options{ :
+@args[o:Sass::Script::Variable	;	"	list:@underscored_name"	list;
+iG;@
+o;	;	"i;"i;
+iG;@
+:@operator:lte;
+iG;@
+:@operand2o;	;	"
+start;"
+start;
+iG;@
+0[o:Sass::Tree::VariableNode;	"trimmed:@filename"a/Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.3/stylesheets/foundation/_modular-scale.sass:@children[ :@guarded0;
+iH;@
+:
+@expro;
+;{ ;	"append;
+iH;@
+;[o;	;	"trimmed;"trimmed;
+iH;@
+o;
+;{ ;	"nth;
+iH;@
+;[o;	;	"	list;"	list;
+iH;@
+o;	;	"i;"i;
+iH;@
+;
+iF:
+@fromo:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;i:@original"1;
+iF;@
+;@
+o;$
+;@	;[ ;iI;@;o;	;"trimmed;"trimmed;iI;@;i:;@;'[[o;;"	list;"	list;@0[o;;"
+start;"
+start;@0[o;;"dir;"dir;@o; 	;
+;<;"asc;i:;@o;	;
+;;@	;[ ;["E// Other libraries can easily query if this function is avalible;iK;@o;;"modular-scale-loaded;@	;[ ;0;iL;@;o:Sass::Script::Bool;T;iL;@;@
