@@ -11,7 +11,9 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;" />
 
-	<title>Middle8Media - a Digital Media Studio</title>
+	<title>Middle8Media - a Digital Media Studio - Web Design, Web Developement, Filmmaking</title>
+	<meta name="keywords" content="Greensboro, North Carolina, Web Design, Web Development, Film, Video, Filmmaking, Videography, Triad, Winston-Salem, High Point, Triangle, Raleigh, Durham, Chapel Hill">
+	<meta name="description" content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="stylesheets/app.css">
@@ -20,8 +22,8 @@
 		<link rel="stylesheet" href="css/ie.css">
 	<![endif]-->
 
-  <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  	<script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
+  	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<script src="javascripts/foundation/modernizr.foundation.js"></script>
 
 	<!-- IE Fix for HTML5 Tags -->
@@ -54,7 +56,7 @@
             <p>Middle8Media is a digital media studio based in Greensboro, North Carolina. Our dream is to work and succeed in a field that we love and our mission is to help you and your business do the same. We promise to give each client and each project the individual attention needed to build great relationships and beautiful product. If this sounds like the kind of relationship you desire, please consider hiring us for your next project.</p>
       		</div>
           <div id="aside" class="four columns">
-            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our wish is to design & develop beautiful websites, as well as produce unique & engaging films, for the artist & entrepreneur alike. If you're ready to share your talent & vision with the world, please consider hiring us for your next project."
+            <blockquote>"At M8M we believe that it's possible to make your living doing what you love and the company was founded with the hopes of helping you do just that. Whether you own a small business or have your own traveling high wire act, our mission is to design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike. If you're ready to share your talent & vision with the world, please consider hiring us for your next project."
             </blockquote>
             <blockquote class="quote"><cite>Seth Hall, Founder</cite></blockquote>
           </div>
@@ -137,4 +139,5 @@
     })();
 
   </script>
+  
 </body>

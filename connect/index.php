@@ -11,7 +11,9 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;" />
 
-	<title>Middle8Media - a Digital Media Studio</title>
+	<title>Middle8Media - a Digital Media Studio - Connect</title>
+	<meta name="keywords" content="Greensboro, North Carolina, Web Design, Web Development, Film, Video, Filmmaking, Videography, Triad, Winston-Salem, High Point, Triangle, Raleigh, Durham, Chapel Hill">
+	<meta name="description" content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	<!-- Included CSS Files -->
 	<link rel="stylesheet" href="../stylesheets/app.css">
