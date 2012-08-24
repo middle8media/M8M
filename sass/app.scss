@@ -241,6 +241,25 @@ blockquote {
 	@include respond-to(landscape-mobile) {width: 30%;}
 }
 
+
+/* -------------------------------------------- FAQ */
+
+#faq-page #aside {
+	width: 333px;
+	@include respond-to(medium-screens) {width: 256px;}
+}
+
+.affix {
+	position: fixed;
+	top: 20px;
+	right: 460px;
+	@include respond-to(portrait-mobile) {position: static; right: 0px;}
+	@include respond-to(landscape-mobile) {position: static; right: 0px;}
+	@include respond-to(medium-screens) {right:12px;};
+}
+
+
+
 /* -------------------------------------------- Connect */
 
 #connectTab .quote {
@@ -264,6 +283,28 @@ blockquote {
 .name, .email {
 	@include respond-to(portrait-mobile) {padding-right: 0px;}
 	@include respond-to(landscape-mobile) {padding-right: 0px;}
+}
+
+ul.chirp li {
+	position: relative;
+	list-style: none;
+	padding-left: 60px;
+}
+
+ul.chirp li img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 40px;
+	height: 40px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: none;
+}
+
+ul.chirp li .meta, ul.chirp li .meta a {
+	font-size: 12px;
 }
 
 /* -------------------------------------------- Jot Form */

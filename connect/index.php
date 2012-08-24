@@ -50,7 +50,7 @@
           <div class="row">
             <div class="twelve columns">
               <ul class="tabs-content">
-
+                
                 <li class="active" id="connectTab">
                   <div class="row">
                     <div class="eight columns">
@@ -58,9 +58,26 @@
                       </blockquote>
 
                       <blockquote class="quote"><cite>Seth Hall, Founder</cite></blockquote>
+                      
                     </div>
 
                       <div class="four columns">
+
+                        <!-- Add Chirp -->
+                        
+                        <script src="../javascripts/foundation/chirp.js"></script>
+                        <div class="panel">
+                          <h5>Latest Tweet</h5>
+                          <script>Chirp({
+                            user: 'middle8media', //Twitter username
+                            max: 1, //Maximum number of tweets to show 
+                            count: 1, //Total tweets to retrieve
+                            retweets: true, //Show/Don't show retweets
+                            replies: false,  //Show/Don't show replies
+                            cacheExpire: 1000 * 60 * 2 //Number of milliseconds to cache tweets
+                          })</script>
+                        </div>  
+
                         <div class="social-networks panel">
                           <h5>Social Networks</h5>
                           <ul>
@@ -69,6 +86,7 @@
                             <li><span class="glyph social instagram"><a href="http://followgram.me/middle8media" target="_blank" title="M8M on Instagram">t </a></span></li>
                           </ul>
                         </div>
+                        
                       </div>
                     </div>
                 </li>
@@ -241,10 +259,14 @@
 	<script src="../javascripts/foundation/jquery.customforms.js"></script>
 	<script src="../javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
+
 	<!-- End Combine and Compress These JS Files -->
 	<script src="../javascripts/app.js"></script>
+	
+	
 
-      <!-- Add FitText -->
+
+  <!-- Add FitText -->
 
   <script type="text/javascript">
     $("h2").fitText(1.1, { minFontSize: 20, maxFontSize: '40px' });

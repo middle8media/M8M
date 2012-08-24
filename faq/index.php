@@ -33,7 +33,7 @@
 </head>
 
   <body id="page" class="off-canvas hide-extras">
-	<div class="container">
+	<div id="faq-page" class="container">
 
 		<header id="header" class="row">
       <?php include '../nav.php'; ?>
@@ -100,7 +100,8 @@
               </li>
             </ol>
       		</div>
-          <div id="aside" class="four columns">
+      		
+          <div data-spy="affix" data-offset-top="305" id="aside" class="four columns">
             <hr class="show-for-small">
             <blockquote>"To help our clients understand our creative process and business practices, we have provided this FAQ. If you have further questions about your project or our creative process, please send us an email."
             </blockquote>
@@ -132,7 +133,8 @@
 	<script src="../javascripts/foundation/jquery.customforms.js"></script>
 	<script src="../javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
-  <script src="../javascripts/foundation/jquery.tooltips.js"></script>
+  	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
+  	<script src="../javascripts/foundation/affix.js"></script>
 	<!-- End Combine and Compress These JS Files -->
 	<script src="../javascripts/app.js"></script>
 
@@ -141,7 +143,7 @@
   <script type="text/javascript">
     $("h2").fitText(1.1, { minFontSize: 20, maxFontSize: '40px' });
   </script>
-
+  
   <!-- Add easing -->
 
   <script type="text/javascript">

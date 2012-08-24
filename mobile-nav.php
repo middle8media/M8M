@@ -1,4 +1,4 @@
-/<section id="sidebar" role="complementary">
+<section id="sidebar" role="complementary">
 
 	<nav id="sideMenu" role="navigation">
 	  <ul id="sideMainNav" class="nav-bar">
