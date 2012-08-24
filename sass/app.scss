@@ -244,7 +244,7 @@ blockquote {
 
 /* -------------------------------------------- FAQ */
 
-#faq-page #aside {
+/* #faq-page #aside {
 	width: 333px;
 	@include respond-to(medium-screens) {width: 256px;}
 }
@@ -255,8 +255,10 @@ blockquote {
 	right: 460px;
 	@include respond-to(portrait-mobile) {position: static; right: 0px;}
 	@include respond-to(landscape-mobile) {position: static; right: 0px;}
-	@include respond-to(medium-screens) {right:12px;};
-}
+	@include respond-to(medium-screens) {right:0px;}
+	@media screen and (min-width: 1024px) and (max-width: 1024px) {right:12px;}
+	
+} */
 
 
 
