@@ -11,10 +11,12 @@
 	
 	<meta name=viewport content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;"/>
 
-	<title>Middle8Media - a Digital Media Studio</title>
+	<title>Middle8Media - a Digital Media Studio - Connect</title>
+	<meta name=keywords content="Greensboro, North Carolina, Web Design, Web Development, Film, Video, Filmmaking, Videography, Triad, Winston-Salem, High Point, Triangle, Raleigh, Durham, Chapel Hill">
+	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/8ab956f.css'>
+	<link rel=stylesheet href='../stylesheets/8489674.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
@@ -44,7 +46,7 @@
           <div class=row>
             <div class="twelve columns">
               <ul class=tabs-content>
-
+                
                 <li class=active id=connectTab>
                   <div class=row>
                     <div class="eight columns">
@@ -52,9 +54,19 @@
                       </blockquote>
 
                       <blockquote class=quote><cite>Seth Hall, Founder</cite></blockquote>
+                      
                     </div>
 
                       <div class="four columns">
+
+                        
+                        
+                        <script src="../javascripts/foundation/chirp.js"></script>
+                        <div class=panel>
+                          <h5>Latest Tweet</h5>
+                          <script>Chirp({user:"middle8media",max:1,count:1,retweets:true,replies:false,cacheExpire:1000*60*2});</script>
+                        </div>  
+
                         <div class="social-networks panel">
                           <h5>Social Networks</h5>
                           <ul>
@@ -63,6 +75,7 @@
                             <li><span class="glyph social instagram"><a href="http://followgram.me/middle8media" target=_blank title="M8M on Instagram">t </a></span></li>
                           </ul>
                         </div>
+                        
                       </div>
                     </div>
                 </li>
@@ -219,10 +232,14 @@
 	<script src="../javascripts/foundation/jquery.customforms.js"></script>
 	<script src="../javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
+
 	
 	<script src="../javascripts/app.js"></script>
+	
+	
 
-      
+
+  
 
   <script type="text/javascript">$("h2").fitText(1.1,{minFontSize:20,maxFontSize:"40px"});</script>
 

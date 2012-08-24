@@ -11,10 +11,12 @@
 	
 	<meta name=viewport content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;"/>
 
-	<title>Middle8Media - Films</title>
+	<title>Middle8Media - a Digital Media Studio - Film</title>
+	<meta name=keywords content="Greensboro, North Carolina, Web Design, Web Development, Film, Video, Filmmaking, Videography, Triad, Winston-Salem, High Point, Triangle, Raleigh, Durham, Chapel Hill">
+	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/8ab956f.css'>
+	<link rel=stylesheet href='../stylesheets/8489674.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>

@@ -1,0 +1,674 @@
+/* Artfully masterminded by ZURB  */
+@import "compass/reset";
+@import "offcanvas";
+@import "settings";
+@import "foundation";
+@import "compass/typography/text/replacement";
+@import "compass/css3/transition";
+
+@import "icons";
+@import "font-awesome";
+
+/* -------------------------------------------- Media Queries */
+
+$break-small: 320px;
+$break-medium: 768px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == portrait-mobile {
+    @media only screen and (min-width: $break-small) and (max-width: $break-small + 159) { @content; }
+  }
+  @else if $media == landscape-mobile {
+    @media only screen and (min-width: $break-small + 160) and (max-width: $break-medium - 1) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-medium) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
+
+/* -------------------------------------------- General Styles */
+
+body {
+	font-family: adelle,serif;
+	p {
+		color: black;
+	}
+	a {
+	cursor: pointer;
+	font-weight: bold;
+	@include transition-property(all);
+  @include transition-duration(.15s);
+	}
+}
+
+.js [role="main"] {
+	background: white;
+}
+
+ul {
+	list-style: none;
+}
+
+ol {
+	margin-left: $basemargin + 5;
+	list-style: decimal;
+}
+
+#menu {
+	text-align: center;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	li {
+	display: inline;
+	margin: 0 35px;
+}
+}
+
+#mainNav {
+	margin-top: $basemargin - 3;
+	font-family: adelle,serif;
+	font-weight: bold;
+}
+
+#sideMenu ul li i {
+	margin-right: 15px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: adelle,serif;
+	font-weight:bold;
+}
+
+h1#site-title {
+	text-indent: -999px;
+	background: url(../images/logo.png) no-repeat 50% 50%;
+	display: block;
+	height:	133px;
+	width: 100%;
+	margin: $basemargin auto;
+	-webkit-background-size: auto 90%;
+	-moz-background-size: auto 90%;
+	background-size: auto 90%;
+}
+
+h2 {
+	text-align:center;
+	margin-bottom:$basemargin + 10;
+}
+
+blockquote {
+	font-style: italic;
+	margin: 0px 0 14px;
+	padding: 0px 5px 0 20px;
+	border-left: 1px solid #DDD;
+	color: #555;
+}
+
+.quote {
+	border:none;
+	display: block;
+	background: url(../images/seth-avatar.png) no-repeat 10% 50%;
+	height: 70px;
+	width: 100%;
+	-webkit-background-size: auto 90%;
+	-moz-background-size: auto 90%;
+	background-size: auto 90%;
+	img {
+		float: left;
+	}
+	cite {
+		float: left;
+		margin: 25px 0px 0px 75px;
+		@include respond-to(medium-screens) { font-size:13px; margin: 27px 0px 20px 64px };
+		@include respond-to(portrait-mobile) {margin: 27px 0px 20px 80px };
+		@include respond-to(landscape-mobile) {margin: 27px 0px 20px 89px };
+	}
+}
+
+.style1 {
+	font-size: 17px;
+	color: #EB3F40;
+}
+
+.html {
+	color: #E34C26;
+}
+
+.css {
+	color: #006FB9;
+}
+
+.js {
+	color: #1E3044;
+}
+
+.adobe {
+	color: #702872;
+}
+
+.hidden {
+	display: none;
+}
+
+/* -------------------------------------------- Orbit Slide Show */
+
+#featured { background: url(spinner.gif) center center #f4f4f4; height: 300px; margin-bottom:$basemargin + 10; }
+#featured img { display: none; }
+
+#featured.orbit { background: none; }
+#featured.orbit img { display: block; }
+
+
+/* -------------------------------------------- Web */
+
+.detail-view {
+	float: right;
+	margin-bottom: 0px;
+	span {
+		font-size: 20px;
+		margin-left: $basemargin - 10;
+	}
+}
+
+#portfolio img {
+	display: block;
+	border: 3px solid #3694B7;
+	margin-bottom: $basemargin + 10;
+	opacity:1;
+	@include transition-property(all);
+  @include transition-duration(.15s);
+}
+
+#thumbnail-viewTab img:hover, #list-viewTab img:hover {
+		opacity:.8;
+}
+
+#list-viewTab {
+	h5 {
+		@include respond-to(medium-screens) {margin-top: 0px;}
+		@include respond-to(wide-screens) {margin-top: 0px;}
+	}
+	.four.columns {
+		margin-bottom: $basemargin + 40;
+	}
+}
+
+/* -------------------------------------------- Film */
+
+.fitvids {
+	margin-bottom:$basemargin + 20;
+}
+
+.fitvids blockquote {
+	margin-top:$basemargin;
+}
+
+/* -------------------------------------------- Clients */
+
+.testimonial {
+	img {
+		width: 80px;
+		height: 80px;
+		clear: both;
+		@include float(left);
+		margin-right: $basemargin;
+		border: 3px solid black;
+	}
+	blockquote {
+		padding: 0px;
+		border: none;
+		cite a {
+			color:#2BA6CB;
+		}
+	}
+}
+
+.logo-grid img {
+	display: block;
+	margin:auto;
+	width: 490%;
+}
+
+.logo-grid-2 img {
+	display: block;
+	margin:auto;
+	width: 50%;
+	@include respond-to(portrait-mobile) {width: 30%;}
+	@include respond-to(landscape-mobile) {width: 30%;}
+}
+
+
+/* -------------------------------------------- FAQ */
+
+#faq-page #aside {
+	width: 333px;
+	@include respond-to(medium-screens) {width: 256px;}
+}
+
+.affix {
+	position: fixed;
+	top: 20px;
+	right: 460px;
+	@include respond-to(portrait-mobile) {position: static; right: 0px;}
+	@include respond-to(landscape-mobile) {position: static; right: 0px;}
+	@include respond-to(medium-screens) {right:12px;};
+}
+
+
+
+/* -------------------------------------------- Connect */
+
+#connectTab .quote {
+	border:none;
+	display: block;
+	background: url(../images/seth-avatar.png) no-repeat 3% 50%;
+	height: 70px;
+	width: 100%;
+	-webkit-background-size: auto 90%;
+	-moz-background-size: auto 90%;
+	background-size: auto 90%;
+	cite {
+		float: left;
+		margin: 25px 0px 0px 70px;
+		@include respond-to(medium-screens) { font-size:13px; margin: 27px 0px 20px 63px };
+		@include respond-to(portrait-mobile) {margin: 27px 0px 20px 60px };
+		@include respond-to(landscape-mobile) {margin: 27px 0px 20px 60px };
+	}
+}
+
+.name, .email {
+	@include respond-to(portrait-mobile) {padding-right: 0px;}
+	@include respond-to(landscape-mobile) {padding-right: 0px;}
+}
+
+ul.chirp li {
+	position: relative;
+	list-style: none;
+	padding-left: 60px;
+}
+
+ul.chirp li img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 40px;
+	height: 40px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: none;
+}
+
+ul.chirp li .meta, ul.chirp li .meta a {
+	font-size: 12px;
+}
+
+/* -------------------------------------------- Jot Form */
+
+fieldset {
+  border: none;
+  padding: 0px;
+}
+
+fieldset li {
+  list-style: none;
+}
+
+.form-required {
+  color: #DD4B39;
+}
+
+#input_10 {
+  margin-bottom: 0px;
+}
+
+.six.columns.name, .six.columns.phone, .six.columns.email, .six.columns.website {
+  height: 100px;
+}
+
+.six.columns.website {
+  height: 82px;
+}
+
+.twelve.columns.details {
+  height: 188px;
+}
+
+.twelve.columns.budget {
+  height: 100px;
+}
+
+#id_10 .form-error-message {
+  margin-top: 10px;
+}
+
+.form-error-message {
+  background: rgba(198, 15, 19, 0.8);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  padding: 2px 7px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  margin: 0px;
+}
+
+/* -------------------------------------------- Social Networks */
+
+.social-networks {
+	span{
+	font-size: 60px;
+}
+	a{
+	color: black;
+	margin-right: 25px;
+	@include respond-to(portrait-mobile) {margin-right: 18px;}
+	@include respond-to(landscape-mobile) {margin-right: 99px;}
+ 	@include respond-to(medium-screens) { margin-right: 0px; }
+  	@include respond-to(wide-screens) {}
+}
+	ul li {
+	display: inline;
+}
+	.facebook a:hover {
+	color: #3B5998;
+}
+	.twitter a:hover{
+	color: #00ABF0;
+}
+	.instagram a:hover {
+	color: #845445;
+}
+}
+
+.social-networks {
+	span {
+	@include respond-to(medium-screens) { font-size: 52px; }
+	}
+	a {font-weight: normal;
+	}
+}
+
+
+/* -------------------------------------------- Footer */
+
+footer {
+	background: none;
+	color: #222222;
+	border-top: 1px solid #999;
+	padding: 17px 0;
+	.copywrite {
+		text-align: center;
+		@include respond-to(medium-screens) {float: right;}
+		@include respond-to(wide-screens) {float: right;}
+	}
+	ul.link-list {
+		@include respond-to(portrait-mobile) {margin: 0px -22px 18px; width: 406px;}
+		@include respond-to(landscape-mobile) {margin: 0px auto 18px; width: 406px;}
+		a {
+			font-weight: normal;
+		}
+		li {
+			@include respond-to(portrait-mobile) {margin-left: 19px;}
+		}
+}
+}
+
+.link-list .icon-large {
+		font-size: 25px;
+		@include respond-to(portrait-mobile) {font-size: 25px;}
+		@include respond-to(landscape-mobile) {font-size: 30px;}
+}
+
+.site-footer .has-tip {
+	border-bottom: none;
+}
+
+/* -------------------------------------------- FancyBox */
+
+/*! fancyBox v2.0.6 fancyapps.com | fancyapps.com/fancybox/#license */
+.fancybox-tmp iframe, .fancybox-tmp object {
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+}
+
+.fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+
+.fancybox-skin {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	background: #f9f9f9;
+	color: #444;
+	text-shadow: none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+.fancybox-opened {
+	z-index: 8030;
+}
+
+.fancybox-opened .fancybox-skin {
+	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.fancybox-outer, .fancybox-inner {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	outline: none;
+}
+
+.fancybox-inner {
+	overflow: hidden;
+}
+
+.fancybox-type-iframe .fancybox-inner {
+	-webkit-overflow-scrolling: touch;
+}
+
+.fancybox-error {
+	color: #444;
+	font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin: 0;
+	padding: 10px;
+}
+
+.fancybox-image, .fancybox-iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	vertical-align: top;
+}
+
+.fancybox-image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('../images/fancybox_sprite.png');
+}
+
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 8020;
+}
+
+#fancybox-loading div {
+	width: 44px;
+	height: 44px;
+	background: url('../images/fancybox_loading.gif') center center no-repeat;
+}
+
+.fancybox-close {
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 8040;
+}
+
+.fancybox-nav {
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+	background: transparent url('../images/blank.gif'); /* helps IE */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	z-index: 8040;
+}
+
+.fancybox-prev {
+	left: 0;
+}
+
+.fancybox-next {
+	right: 0;
+}
+
+.fancybox-nav span {
+	position: absolute;
+	top: 50%;
+	width: 36px;
+	height: 34px;
+	margin-top: -18px;
+	cursor: pointer;
+	z-index: 8040;
+	visibility: hidden;
+}
+
+.fancybox-prev span {
+	left: 20px;
+	background-position: 0 -36px;
+}
+
+.fancybox-next span {
+	right: 20px;
+	background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+	visibility: visible;
+}
+
+.fancybox-tmp {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	padding: 0;
+	overflow: visible;
+	visibility: hidden;
+}
+
+/* Overlay helper */
+
+#fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background: #000;
+}
+
+#fancybox-overlay.overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+/* Title helper */
+
+.fancybox-title {
+	visibility: hidden;
+	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	position: relative;
+	text-shadow: none;
+	z-index: 8050;
+}
+
+.fancybox-opened .fancybox-title {
+	visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	margin-bottom: -35px;
+	z-index: 8030;
+	text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+	display: inline-block;
+	margin-right: -100%;
+	padding: 2px 20px;
+	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
+	background: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+	        border-radius: 15px;
+	text-shadow: 0 1px 2px #222;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 24px;
+	white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+	position: relative;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.fancybox-title-inside-wrap {
+	margin-top: 10px;
+}
+
+.fancybox-title-over-wrap {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #fff;
+	padding: 10px;
+	background: #000;
+	background: rgba(0, 0, 0, .8);
+}
+
+
+
+
+
+

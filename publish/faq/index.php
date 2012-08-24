@@ -11,10 +11,12 @@
 	
 	<meta name=viewport content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=yes;"/>
 
-	<title>Middle8Media - a Digital Media Studio</title>
+	<title>Middle8Media - a Digital Media Studio - FAQ</title>
+	<meta name=keywords content="Greensboro, North Carolina, Web Design, Web Development, Film, Video, Filmmaking, Videography, Triad, Winston-Salem, High Point, Triangle, Raleigh, Durham, Chapel Hill">
+	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/8ab956f.css'>
+	<link rel=stylesheet href='../stylesheets/8489674.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
@@ -27,7 +29,7 @@
 </head>
 
   <body id=page class="off-canvas hide-extras">
-	<div class=container>
+	<div id=faq-page class=container>
 
 		<header id=header class=row>
       <?php include '../nav.php'; ?>
@@ -94,7 +96,8 @@
               </li>
             </ol>
       		</div>
-          <div id=aside class="four columns">
+      		
+          <div data-spy=affix data-offset-top=305 id=aside class="four columns">
             <hr class=show-for-small>
             <blockquote>"To help our clients understand our creative process and business practices, we have provided this FAQ. If you have further questions about your project or our creative process, please send us an email."
             </blockquote>
@@ -126,14 +129,15 @@
 	<script src="../javascripts/foundation/jquery.customforms.js"></script>
 	<script src="../javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
-  <script src="../javascripts/foundation/jquery.tooltips.js"></script>
+  	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
+  	<script src="../javascripts/foundation/affix.js"></script>
 	
 	<script src="../javascripts/app.js"></script>
 
   
 
   <script type="text/javascript">$("h2").fitText(1.1,{minFontSize:20,maxFontSize:"40px"});</script>
-
+  
   
 
   <script type="text/javascript">$(document).ready(function(){$("a[href*=#page], a[href*=#services], a[href*=#cost], a[href*=#time], a[href*=#payment], a[href*=#process]").bind("click",function(b){b.preventDefault();var a=$(this).attr("href");$("html, body").stop().animate({scrollTop:$(a).offset().top},2000,"easeOutExpo",function(){location.hash=a});return false})});</script>
