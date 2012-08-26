@@ -19,4 +19,3 @@ Framework: [Foundation](http://foundation.zurb.com/) by Zurb
 ### THANKS
 
 To my lovely wife Elizabeth for supporting my work/hobby/passion/obsession that is digital media.  You are the 1 to my 0.
-
