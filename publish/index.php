@@ -102,11 +102,11 @@
 	<script src="javascripts/foundation/jquery.orbit-1.4.0.js"></script>
 	<script src="javascripts/foundation/jquery.customforms.js"></script>
 	<script src="javascripts/foundation/jquery.placeholder.min.js"></script>
-	<script src="javascripts/foundation/jquery.tooltips.js"></script>	
+	<script src="javascripts/foundation/jquery.tooltips.js"></script>
+	
+	
 	<script src="javascripts/app.js"></script>
-	
-	
-	
+
   
 
   <script type="text/javascript">$(window).load(function(){$("#featured").orbit()});</script>

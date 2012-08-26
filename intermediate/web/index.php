@@ -198,7 +198,6 @@
 													<li>✪ SEO Optimization</li>
 													<li>✪ Social Network Integration</li>
 												</ul>
-												<p><a href="http://qbeasy.com" target="_blank" title="Alpha Accounting" class="small button"><i class="icon-link icon-large"></i> View Website</a></p>
 										</div>
 								</div>
 

@@ -108,6 +108,7 @@
 	<script src="javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="javascripts/foundation/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
+	
 	<script src="javascripts/app.js"></script>
 
   <!-- Add Orbit -->
