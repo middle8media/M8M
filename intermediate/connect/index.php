@@ -16,7 +16,7 @@
 	<meta name="description" content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	<!-- Included CSS Files -->
-	<link rel="stylesheet" href='../stylesheets/4998f4b.css'>
+	<link rel="stylesheet" href='../stylesheets/221636f.css'>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie.css">
@@ -94,10 +94,7 @@
                 <li id="contactTab">
                       <div class="row">
                         <div class="twelve columns">
-                            <div class="panel">
-                              <h5>Client/Project Status:</h5>
-                              <p><em><i class="icon-asterisk icon-large style1"></i> We are accepting projects for August 2012.</em></p>
-                            </div>
+                            <?php include '../project-status.php'; ?>
 
                             <p>If you are interested in hiring us for your next project, please fill out the form below and we will respond shortly. If you just want to say hello you can send us an <a href="mailto:info@middle8media.com?subject=Just Saying Hello" "email">email</a>.</p>
 
