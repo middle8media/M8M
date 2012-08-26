@@ -1,8 +1,8 @@
-# M8M
 ### Site Files for [middle8media.com](http://middle8media.com)
-	
-Middle8Media 2.0  
-Founder: Seth Hall  
+
+---
+Middle8Media v 2.0  
+Founder/Developer: Seth Hall  
 Inspiration & so much more: Elizabeth Hall  
 Site: [middle8media.com](http://middle8media.com) & [teamhall.us](http://teamhall.us)  
 Twitter: [@middle8media](http://twitter.com/middle8media) & [@m8m_elizabeth](http://twitter.com/m8m_elizabeth)  
