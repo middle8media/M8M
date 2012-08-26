@@ -94,10 +94,7 @@
                 <li id="contactTab">
                       <div class="row">
                         <div class="twelve columns">
-                            <div class="panel">
-                              <h5>Client/Project Status:</h5>
-                              <p><em><i class="icon-asterisk icon-large style1"></i> We are accepting projects for August 2012.</em></p>
-                            </div>
+                            <?php include '../project-status.php'; ?>
 
                             <p>If you are interested in hiring us for your next project, please fill out the form below and we will respond shortly. If you just want to say hello you can send us an <a href="mailto:info@middle8media.com?subject=Just Saying Hello" "email">email</a>.</p>
 

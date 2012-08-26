@@ -282,6 +282,10 @@ blockquote {
 	}
 }
 
+#contactTab .button {
+	display: none;
+}
+
 .name, .email {
 	@include respond-to(portrait-mobile) {padding-right: 0px;}
 	@include respond-to(landscape-mobile) {padding-right: 0px;}
