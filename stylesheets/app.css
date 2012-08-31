@@ -5763,7 +5763,7 @@ blockquote {
 	@include respond-to(landscape-mobile) {position: static; right: 0px;}
 	@include respond-to(medium-screens) {right:0px;}
 	@media screen and (min-width: 1024px) and (max-width: 1024px) {right:12px;}
-	
+
 } */
 /* -------------------------------------------- Connect */
 /* line 267, ../sass/app.scss */
@@ -5803,7 +5803,7 @@ blockquote {
 }
 
 /* line 285, ../sass/app.scss */
-#contactTab .button {
+#contactTab .success {
   display: none;
 }
 

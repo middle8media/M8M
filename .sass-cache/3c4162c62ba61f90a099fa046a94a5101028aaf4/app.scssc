@@ -1,5 +1,5 @@
 3.2.0.alpha.261 (Bleeding Edge)
-12ffa6e21651ff5ab231b993feb152e7daa7230f
+b0204c45a83dc70451afd400a7af515edeaaf65d
 o:Sass::Tree::RootNode
 :@has_childrenT:@template"V0/* Artfully masterminded by ZURB  */
 @import "compass/reset";
@@ -260,7 +260,7 @@ blockquote {
 	@include respond-to(landscape-mobile) {position: static; right: 0px;}
 	@include respond-to(medium-screens) {right:0px;}
 	@media screen and (min-width: 1024px) and (max-width: 1024px) {right:12px;}
-	
+
 } */
 
 
@@ -285,7 +285,7 @@ blockquote {
 	}
 }
 
-#contactTab .button {
+#contactTab .success {
 	display: none;
 }
 
@@ -1059,7 +1059,7 @@ width;!;";i ;[ ;o;#;
 ;
 ;;[ ;[";/* -------------------------------------------- FAQ */;iõ;@o;	
 ;
-;;[ ;["¥/* #faq-page #aside {
+;;[ ;["¤/* #faq-page #aside {
 	width: 333px;
 	@include respond-to(medium-screens) {width: 256px;}
 }
@@ -1072,7 +1072,7 @@ width;!;";i ;[ ;o;#;
 	@include respond-to(landscape-mobile) {position: static; right: 0px;}
 	@include respond-to(medium-screens) {right:0px;}
 	@media screen and (min-width: 1024px) and (max-width: 1024px) {right:12px;}
-	
+
 } */;i÷;@o;	
 ;
 ;;[ ;["?/* -------------------------------------------- Connect */;i	;@o;;T;i ;[o; ;["border;!;";i ;[ ;o;#;
@@ -1102,9 +1102,9 @@ float;!;";i ;[ ;o;#;
 ;+o;,;-{ ;([o;<;["connectTab;0" ;i;0@;i;10o;*
 ;+o;,;-{ ;([o;4;["
 quote;0@;i;0@;i;10;0@;io;;T;i ;[o; ;["display;!;";i ;[ ;o;#;
-;$;"	none;@;i;@;i;%["#contactTab .button;@;&o;';([o;);([o;*
+;$;"	none;@;i;@;i;%["#contactTab .success;@;&o;';([o;);([o;*
 ;+o;,;-{ ;([o;<;["contactTab;0" ;i;0@6;i;10o;*
-;+o;,;-{ ;([o;4;["button;0@6;i;0@6;i;10;0@6;io;;T;i ;[o;2;3{ ;"respond-to;T;[o; ;["padding-right;!;";i ;[ ;o;#;
+;+o;,;-{ ;([o;4;["success;0@6;i;0@6;i;10;0@6;io;;T;i ;[o;2;3{ ;"respond-to;T;[o; ;["padding-right;!;";i ;[ ;o;#;
 ;$;"0px;@;i";@;i";@;[o;#	;
 ;$;"portrait-mobile;i";@o;2;3{ ;"respond-to;T;[o; ;["padding-right;!;";i ;[ ;o;#;
 ;$;"0px;@;i#;@;i#;@;[o;#	;
