@@ -46,7 +46,7 @@
           <div class=row>
             <div class="twelve columns">
               <ul class=tabs-content>
-                
+
                 <li class=active id=connectTab>
                   <div class=row>
                     <div class="eight columns">
@@ -54,18 +54,18 @@
                       </blockquote>
 
                       <blockquote class=quote><cite>Seth Hall, Founder</cite></blockquote>
-                      
+
                     </div>
 
                       <div class="four columns">
 
                         
-                        
+
                         <script src="../javascripts/foundation/chirp.js"></script>
                         <div class=panel>
                           <h5>Latest Tweet</h5>
                           <script>Chirp({user:"middle8media",max:1,count:1,retweets:true,replies:false,cacheExpire:1000*60*2});</script>
-                        </div>  
+                        </div>
 
                         <div class="social-networks panel">
                           <h5>Social Networks</h5>
@@ -75,7 +75,7 @@
                             <li><span class="glyph social instagram"><a href="http://followgram.me/middle8media" target=_blank title="M8M on Instagram">t </a></span></li>
                           </ul>
                         </div>
-                        
+
                       </div>
                     </div>
                 </li>
@@ -231,10 +231,8 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 
 	
-	<script src="../javascripts/app.js"></script>
-	
-	
 
+  <script defer src='javascripts/c49194f.js'></script>
 
   
 

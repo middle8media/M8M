@@ -195,7 +195,8 @@
 	<script src="../javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	
-	<script src="../javascripts/app.js"></script>
+
+  <script defer src='javascripts/c49194f.js'></script>
 
   
 

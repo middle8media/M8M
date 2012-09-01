@@ -201,7 +201,10 @@
 	<script src="../javascripts/foundation/jquery.placeholder.min.js"></script>
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
-	<script src="../javascripts/app.js"></script>
+
+  <!-- scripts concatenated and minified via build script -->
+  <script src="javascripts/app.js"></script>
+  <!-- end scripts -->
 
   <!-- Add FitText -->
 

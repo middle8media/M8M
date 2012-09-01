@@ -96,7 +96,7 @@
               </li>
             </ol>
       		</div>
-      		
+
           <div data-spy=affix data-offset-top=305 id=aside class="four columns">
             <hr class=show-for-small>
             <blockquote>"To help our clients understand our creative process and business practices, we have provided this FAQ. If you have further questions about your project or our creative process, please send us an email."
@@ -132,12 +132,13 @@
   	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
   	<script src="../javascripts/foundation/affix.js"></script>
 	
-	<script src="../javascripts/app.js"></script>
+
+  <script defer src='javascripts/c49194f.js'></script>
 
   
 
   <script type="text/javascript">$("h2").fitText(1.1,{minFontSize:20,maxFontSize:"40px"});</script>
-  
+
   
 
   <script type="text/javascript">$(document).ready(function(){$("a[href*=#page], a[href*=#services], a[href*=#cost], a[href*=#time], a[href*=#payment], a[href*=#process]").bind("click",function(b){b.preventDefault();var a=$(this).attr("href");$("html, body").stop().animate({scrollTop:$(a).offset().top},2000,"easeOutExpo",function(){location.hash=a});return false})});</script>
