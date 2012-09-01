@@ -424,7 +424,7 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
 
-	<script defer src='javascripts/c49194f.js'></script>
+  <script defer src='../javascripts/c49194f.js'></script>
 
   <script type="text/javascript" src="../javascripts/foundation/jquery.offcanvas.js"></script>
 

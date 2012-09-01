@@ -260,7 +260,7 @@
 	<!-- End Combine and Compress These JS Files -->
 
   <!-- scripts concatenated and minified via build script -->
-  <script src="javascripts/app.js"></script>
+  <script src="../javascripts/app.js"></script>
   <!-- end scripts -->
 
   <!-- Add FitText -->

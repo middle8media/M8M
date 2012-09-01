@@ -196,7 +196,7 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	
 
-  <script defer src='javascripts/c49194f.js'></script>
+  <script defer src='../javascripts/c49194f.js'></script>
 
   
 

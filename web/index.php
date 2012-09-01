@@ -424,8 +424,8 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
 
-	<!-- scripts concatenated and minified via build script -->
-	<script src="javascripts/app.js"></script>
+  <!-- scripts concatenated and minified via build script -->
+  <script src="../javascripts/app.js"></script>
   <!-- end scripts -->
 
   <script type="text/javascript" src="../javascripts/foundation/jquery.offcanvas.js"></script>
