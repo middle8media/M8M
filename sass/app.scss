@@ -156,7 +156,7 @@ blockquote {
 
 /* -------------------------------------------- Orbit Slide Show */
 
-#featured { background: url(spinner.gif) center center #f4f4f4; height: 300px; margin-bottom:$basemargin + 10; }
+#featured { background: url(/images/foundation/orbit/loading.gif) center center #f4f4f4 no-repeat; height: 300px; margin-bottom:$basemargin + 10; }
 #featured img { display: none; }
 
 #featured.orbit { background: none; }
