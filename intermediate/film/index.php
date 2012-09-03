@@ -16,7 +16,7 @@
 	<meta name="description" content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	<!-- Included CSS Files -->
-	<link rel="stylesheet" href='../stylesheets/3d06d8b.css'>
+	<link rel="stylesheet" href='../stylesheets/32e49f8.css'>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie.css">
