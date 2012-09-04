@@ -94,10 +94,10 @@
                                 <blockquote><cite>Jason Marc Pierce<br /> 2012 TIFN President<br /><a href="http://triadindie.org" target="blank">Triad Indie Film Network</a></cite></blockquote>
                             </div>
                              <div class="four column testimonial">
-                                <h5>Let Life Unfold</h5>
-                                <img src="../images/kellay-avatar.jpg" alt="Let Life Unfold"><blockquote>"Working with Seth was a great experience. His promptness combined with his clear direction made the design process fast, thorough and enjoyable. As a small business owner, the collaboration he and Elizabeth offered was invaluable since many aspects of my business were still up in the air during the design process."</blockquote>
+                                <h5>The Collection Family Band</h5>
+                                <img src="../images/collection-avatar.jpg" alt="The Collection Family Band"><blockquote>Seth and M8M have been so personal in the process of putting together the Collection's website. We went over everything and got down to what our band specifically needed, including aspects of a website that I'd never thought of. I'm so pleased with the work from M8M!</blockquote>
 
-                                <blockquote><cite>Kellay Wiley CD(DONA)<br />Birth Doula<br /><a href="http://doulaswithgrace.com" target="blank">Let Life Unfold</a></cite></blockquote>
+                                <blockquote><cite>David Wimbish<br />Singer/Songwriter<br /><a href="http://thecollectionfamilyband.com" target="blank">The Collection Family Band</a></cite></blockquote>
                             </div>
                           </div>
                         </div>
@@ -115,6 +115,12 @@
                                 <h5>Spring Garden Community Church</h5>
                                 <img src="../images/sgcc-avatar.png" alt="Spring Garden Community Church" style="border:none;"><blockquote>"Middle8Media helped our church get a new website set up. He was efficient, knowledgeable and so easy to work with!  He was especially sensitive to our needs and the vision of our church. As a result, the website Seth created for us perfectly expresses the heart of who we are. I can't recommend Seth Hall and Middle8Media highly enough!"</blockquote>
                                 <blockquote><cite>Cathy Lamb<br />Ministry Facilitator<br /> <a href="http://springgardencommunity.org" target="blank">Spring Garden Community Church</a></cite></blockquote>
+                            </div>
+                             <div class="four column testimonial">
+                                <h5>Let Life Unfold</h5>
+                                <img src="../images/kellay-avatar.jpg" alt="Let Life Unfold"><blockquote>"Working with Seth was a great experience. His promptness combined with his clear direction made the design process fast, thorough and enjoyable. As a small business owner, the collaboration he and Elizabeth offered was invaluable since many aspects of my business were still up in the air during the design process."</blockquote>
+
+                                <blockquote><cite>Kellay Wiley CD(DONA)<br />Birth Doula<br /><a href="http://doulaswithgrace.com" target="blank">Let Life Unfold</a></cite></blockquote>
                             </div>
                           </div>
                         </div>
@@ -145,7 +151,7 @@
 
                       <div class="row logo-grid">
                         <div class="six columns">
-                          <div class="panel"><img src="../images/advanced-direct-logo.jpg" alt="Advanced Direct" title="Advanced Direct"></div>
+                          <div class="panel"><img src="../images/collection-logo.png" alt="The Collection Family Band" title="The Collection Family Band"></div>
                         </div>
                         <div class="six columns">
                           <div class="panel"><img src="../images/sunset-farms-logo.png" alt="Sunset Farms, NC" title="Sunset Farms, NC"></div>
@@ -157,8 +163,17 @@
                           <div class="panel"><img src="../images/gso-bp-logo.png" alt="Greensboro Birth Partners" title="Greensboro Birth Partners"></div>
                         </div>
                         <div class="six columns">
+                          <div class="panel"><img src="../images/advanced-direct-logo.jpg" alt="Advanced Direct" title="Advanced Direct"></div>
+                        </div>
+                      </div>
+
+                      <div class="row logo-grid">
+                        <div class="six columns">
                           <div class="panel"><img src="../images/alpha-accounting-logo.png" alt="Alpha Accounting" title="Alpha Accounting"></div>
                         </div>
+<!--                         <div class="six columns">
+                          <div class="panel"><img src="../images/alpha-accounting-logo.png" alt="Alpha Accounting" title="Alpha Accounting"></div>
+                        </div> -->
                       </div>
 
                       <div class="row logo-grid-2">
