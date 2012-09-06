@@ -68,8 +68,8 @@
 												<a class="fancybox hidden" rel="group" href="../images/tifn-portfolio2.jpg" title="Triad Indie Film Network" target="_blank" ><img src="../images/tifn-portfolio.jpg" alt="Triad Indie Film Network"></a>
 											</div>
 											<div class="four columns">
-												<h5>Alpha Accounting</h5>
-												<a class="fancybox" rel="group" href="../images/alpha-accounting-portfolio1.jpg" title="Alpha Accounting" target="_blank" ><img src="../images/alpha-accounting-portfolio-thumbnail.jpg" alt="Alpha Accounting"></a>
+												<h5>The Collection Family Band</h5>
+												<a class="fancybox" rel="group" href="../images/collection-portfolio1.jpg" title="The Collection Family Band" target="_blank" ><img src="../images/collection-portfolio-thumbnail.jpg" alt="The Collection Family Band"></a>
 											</div>
 										</div>
 
@@ -129,7 +129,10 @@
 												<a class="fancybox" rel="group" href="../images/sgcc-portfolio1.jpg" title="Spring Garden Community Church" target="_blank" ><img src="../images/sgcc-portfolio-thumbnail.jpg" alt="Spring Garden Community Church"></a>
 
 											</div>
-											<div class="four columns"></div>
+											<div class="four columns">
+												<h5>Alpha Accounting</h5>
+												<a class="fancybox" rel="group" href="../images/alpha-accounting-portfolio1.jpg" title="Alpha Accounting" target="_blank" ><img src="../images/alpha-accounting-portfolio-thumbnail.jpg" alt="Alpha Accounting"></a>
+											</div>
 											<div class="four columns"></div>
 										</div>
 						  </li>
@@ -183,21 +186,20 @@
 
 								<div class="row">
 										<div class="eight columns">
-											<h5 class="show-for-small">Alpha Accounting</h5>
-											<a class="fancybox" rel="alpha" href="../images/alpha-accounting-portfolio1.jpg" title="Alpha Accounting" target="_blank" ><img src="../images/alpha-accounting-portfolio-list.jpg" alt="Alpha Accounting"></a>
+											<h5 class="show-for-small">The Collection Family Band</h5>
+											<a class="fancybox" rel="collection" href="../images/collection-portfolio1.jpg" title="The Collection Family Band" target="_blank" ><img src="../images/collection-portfolio-list.jpg" alt="The Collection Family Band"></a>
 										</div>
 										<div class="four columns">
-											<h5 class="hide-for-small">Alpha Accounting <hr></h5>
-											<p>Accounting is Hard, We Make it Easy</p>
+											<h5 class="hide-for-small">The Collection Family Band<hr></h5>
+											<p>Coming Soon to a Town Near You.</p>
 												<ul>
-													<li>✪ Wordpress CMS</li>
+													<li>✪ Tumblr Blog</li>
 													<li>✪ Custom <span class="html">HTML5</span> &amp; <span class="css">CSS3</span></li>
-													<li>✪ Responsive/Mobile Design</li>
-													<li>✪ Scalable Icon Fonts</li>
-													<li>✪ Custom Graphics</li>
-													<li>✪ SEO Optimization</li>
+													<li>✪ Media Plugins</li>
+													<li>✪ Mailchimp Integration</li>
 													<li>✪ Social Network Integration</li>
 												</ul>
+												<p><a href="http://thecollectionfamilyband.com" target="_blank"  title="The Collection Family Band" class="small button"><i class="icon-link icon-large"></i> View Website</a></p>
 										</div>
 								</div>
 
@@ -394,6 +396,26 @@
 													<li>✪ Custom Logo</li>
 												</ul>
 												<p><a href="http://springgardencommunity.org" target="_blank"  title="Spring Garden Community Church" class="small button"><i class="icon-link icon-large"></i> View Website</a></p>
+										</div>
+								</div>
+
+								<div class="row">
+										<div class="eight columns">
+											<h5 class="show-for-small">Alpha Accounting</h5>
+											<a class="fancybox" rel="alpha" href="../images/alpha-accounting-portfolio1.jpg" title="Alpha Accounting" target="_blank" ><img src="../images/alpha-accounting-portfolio-list.jpg" alt="Alpha Accounting"></a>
+										</div>
+										<div class="four columns">
+											<h5 class="hide-for-small">Alpha Accounting <hr></h5>
+											<p>Accounting is Hard, We Make it Easy</p>
+												<ul>
+													<li>✪ Wordpress CMS</li>
+													<li>✪ Custom <span class="html">HTML5</span> &amp; <span class="css">CSS3</span></li>
+													<li>✪ Responsive/Mobile Design</li>
+													<li>✪ Scalable Icon Fonts</li>
+													<li>✪ Custom Graphics</li>
+													<li>✪ SEO Optimization</li>
+													<li>✪ Social Network Integration</li>
+												</ul>
 										</div>
 								</div>
 
