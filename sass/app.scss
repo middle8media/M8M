@@ -5,7 +5,7 @@
 @import "foundation";
 @import "compass/typography/text/replacement";
 @import "compass/css3/transition";
-
+/*@import "compass/layout/sticky-footer";*/
 @import "icons";
 @import "font-awesome";
 
@@ -32,6 +32,8 @@ $break-large: 1024px;
 
 /* -------------------------------------------- General Styles */
 
+/*@include sticky-footer(150px, "#wrapper", "#footer_push", "footer");*/
+
 body {
 	font-family: adelle,serif;
 	p {
@@ -43,6 +45,23 @@ body {
 	@include transition-property(all);
   @include transition-duration(.15s);
 	}
+/*	&:before, &:after {
+		content: "";
+    position: fixed;
+    background: #3CA5CC;
+    left: 0;
+    right: 0;
+    height: 10px;
+    z-index: 100;
+	}
+	&:before {
+    top: 0;
+    z-index: 100;
+	}
+	&:after {
+    bottom: 0;
+    z-index: 100;
+	}*/
 }
 
 .js [role="main"] {
