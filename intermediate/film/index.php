@@ -60,6 +60,7 @@
                       <h3>HORSE <br /> <small>short film teaser</small></h3>
                       <div class="fitvids">
                        <iframe src="http://player.vimeo.com/video/20283595?color=f4c430" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                       <blockquote>a short film teaser</blockquote>
                       </div>
 
                       <h3>HORSE <br /> <small>a M8M short film</small></h3>
@@ -80,22 +81,28 @@
                        <blockquote>a M8M 12 hour film challenge, filmed with the iPhone 4. Stay tuned for the third installment of this epic saga.</blockquote>
                       </div>
 
+                      <h3>Advanced Direct<br /> <small>a M8M web-video</small></h3>
+                      <div class="fitvids">
+                       <iframe src="http://player.vimeo.com/video/49926259" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                       <blockquote>"The Most Integrated Man in the World" - 2012 YouTube Campaign for <a href="http://www.advdirectinc.com/" target="_blank" title="Advanced Direct">Advanced Direct</a></blockquote>
+                      </div>
+
                       <h3>OCCS<br /> <small>a M8M mini-doc</small></h3>
                       <div class="fitvids">
                        <iframe src="http://player.vimeo.com/video/19543175?title=0&amp;byline=0&amp;color=f4c430" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                       <blockquote>OCCS is a private non-profit inclusive school for infants to 2nd graders located in Greensboro, NC.</blockquote>
+                       <blockquote><a href="http://occsgreensboro.org/" target="_blank" title="OCCS">OCCS</a> is a private non-profit inclusive school for infants to 2nd graders located in Greensboro, NC.</blockquote>
                       </div>
 
                       <h3>Sunset Farms<br /> <small>a M8M mini-doc</small></h3>
                       <div class="fitvids">
                        <iframe src="http://player.vimeo.com/video/13397867?title=0&amp;byline=0&amp;color=f4c430" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                       <blockquote>Sunset Farms is a multi-generational sustainable family farm located in Snow Camp, NC. This is their story.</blockquote>
+                       <blockquote><a href="http://ncsunsetfarms.com/" target="_blank" title="Sunset Farms">Sunset Farms</a> is a multi-generational sustainable family farm located in Snow Camp, NC. This is their story.</blockquote>
                       </div>
 
                       <h3>Sunset Farms CSA<br /> <small>a M8M mini-doc</small></h3>
                       <div class="fitvids">
                        <iframe src="http://player.vimeo.com/video/19953696?title=0&amp;byline=0&amp;color=f4c430" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                       <blockquote>Sunset Farms is a multi-generational sustainable family farm located in Snow Camp, NC. This mini doc answers the question, what is CSA?</blockquote>
+                       <blockquote><a href="http://ncsunsetfarms.com/" target="_blank" title="Sunset Farms">Sunset Farms</a> is a multi-generational sustainable family farm located in Snow Camp, NC. This mini doc answers the question, what is CSA?</blockquote>
                       </div>
 
                     </div>
