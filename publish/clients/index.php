@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/32e49f8.css'>
+	<link rel=stylesheet href='../stylesheets/f1633a9.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
@@ -65,9 +65,9 @@
                         </div>
 
                         <div class="four column testimonial">
-                            <h5>Our Children's Community School</h5>
+                            <h5>OCCS</h5>
                             <img src="../images/occs-avatar.png" alt="Our Children's Community School" style="border:none;"><blockquote>"The mini documentary that Middle8Media created for OCCS captures the essence of our mission and we use it on the front page of our website. People who watch it feel that they better understand our vision. We plan to use M8M's tools to capture the passion in powerful messages to inspire and inform the families and children we serve as we continue to grow."</blockquote>
-                            <blockquote><cite>Carol & Mary Jordan<br/>Founders<br/><a href="http://occsgreensboro.org" target=blank>OCCS</a></cite></blockquote>
+                            <blockquote><cite>Carol & Mary Jordan<br/>Founders<br/><a href="http://occsgreensboro.org" target=blank>Our Children's Community School</a></cite></blockquote>
 
                         </div>
 
@@ -106,7 +106,7 @@
                                 <blockquote><cite>Chris & Jamie Brie Murray<br/>Sustainable Farmers<br/> <a href="http://ncsunsetfarms.com" target=blank>Sunset Farms, NC</a></cite></blockquote>
                             </div>
                             <div class="four column testimonial end">
-                                <h5>Spring Garden Community Church</h5>
+                                <h5>SGCC</h5>
                                 <img src="../images/sgcc-avatar.png" alt="Spring Garden Community Church" style="border:none;"><blockquote>"Middle8Media helped our church get a new website set up. He was efficient, knowledgeable and so easy to work with!  He was especially sensitive to our needs and the vision of our church. As a result, the website Seth created for us perfectly expresses the heart of who we are. I can't recommend Seth Hall and Middle8Media highly enough!"</blockquote>
                                 <blockquote><cite>Cathy Lamb<br/>Ministry Facilitator<br/> <a href="http://springgardencommunity.org" target=blank>Spring Garden Community Church</a></cite></blockquote>
                             </div>
@@ -209,7 +209,7 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	
 
-  <script defer src='../javascripts/d67189c.js'></script>
+  <script defer src='../javascripts/c49194f.js'></script>
 
   
 

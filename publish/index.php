@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='stylesheets/32e49f8.css'>
+	<link rel=stylesheet href='stylesheets/f1633a9.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
 
@@ -83,6 +83,7 @@
 
           <div class="four columns">
               <?php include 'project-status.php'; ?>
+              <?php include 'current-project.php'; ?>
           </div>
         </div>
       </section>
@@ -106,7 +107,11 @@
 	<script src="javascripts/foundation/jquery.tooltips.js"></script>
 	
 
-  <script defer src='javascripts/d67189c.js'></script>
+  <script defer src='javascripts/c49194f.js'></script>
+
+  
+
+  <script type="text/javascript">$(document).ready(function(){$(".fancybox").fancybox()});</script>
 
   
 
@@ -117,6 +122,7 @@
   <script type="text/javascript">$("h2").fitText(1.1,{minFontSize:20,maxFontSize:"40px"});</script>
 
   <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
+  <script type="text/javascript" src="../javascripts/jquery.fancybox.pack.js?v=2.0.6"></script>
 
   <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-26692859-1"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script>
 

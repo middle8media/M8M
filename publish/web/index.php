@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/32e49f8.css'>
+	<link rel=stylesheet href='../stylesheets/f1633a9.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
@@ -442,7 +442,7 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	
 
-  <script defer src='../javascripts/d67189c.js'></script>
+  <script defer src='../javascripts/c49194f.js'></script>
 
   <script type="text/javascript" src="../javascripts/foundation/jquery.offcanvas.js"></script>
 

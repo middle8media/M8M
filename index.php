@@ -87,6 +87,7 @@
 
           <div class="four columns">
               <?php include 'project-status.php'; ?>
+              <?php include 'current-project.php'; ?>
           </div>
         </div>
       </section>
@@ -114,6 +115,14 @@
 	<script src="javascripts/app.js"></script>
   <!-- end scripts -->
 
+  <!-- Add fancyBox -->
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
+
   <!-- Add Orbit -->
 
   <script type="text/javascript">
@@ -129,6 +138,7 @@
   </script>
 
   <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
+  <script type="text/javascript" src="../javascripts/jquery.fancybox.pack.js?v=2.0.6"></script>
 
   <script type="text/javascript">
 

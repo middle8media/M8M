@@ -16,7 +16,7 @@
 	<meta name="description" content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	<!-- Included CSS Files -->
-	<link rel="stylesheet" href='stylesheets/32e49f8.css'>
+	<link rel="stylesheet" href='stylesheets/f1633a9.css'>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie.css">
@@ -87,6 +87,7 @@
 
           <div class="four columns">
               <?php include 'project-status.php'; ?>
+              <?php include 'current-project.php'; ?>
           </div>
         </div>
       </section>
@@ -110,7 +111,15 @@
 	<script src="javascripts/foundation/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
 
-  <script defer src='javascripts/d67189c.js'></script>
+  <script defer src='javascripts/c49194f.js'></script>
+
+  <!-- Add fancyBox -->
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
 
   <!-- Add Orbit -->
 
@@ -127,6 +136,7 @@
   </script>
 
   <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
+  <script type="text/javascript" src="../javascripts/jquery.fancybox.pack.js?v=2.0.6"></script>
 
   <script type="text/javascript">
 
