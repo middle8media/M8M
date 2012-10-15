@@ -61,7 +61,7 @@
 
                         
 
-                        <script src="../javascripts/foundation/chirp.js"></script>
+                        <script src="../javascripts/foundation/chirp-min.js"></script>
                         <div class=panel>
                           <h5>Latest Tweet</h5>
                           <script>Chirp({user:"middle8media",max:1,count:1,retweets:true,replies:false,cacheExpire:1000*60*2});</script>

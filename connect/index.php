@@ -65,7 +65,7 @@
 
                         <!-- Add Chirp -->
 
-                        <script src="../javascripts/foundation/chirp.js"></script>
+                        <script src="../javascripts/foundation/chirp-min.js"></script>
                         <div class="panel">
                           <h5>Latest Tweet</h5>
                           <script>Chirp({
