@@ -458,9 +458,10 @@
 		});
 	</script>
 
-<!-- TouchSwipe -->
+  <!-- TouchSwipe -->
 
   <script type="text/javascript">
+  $(function() {
     $(".fancybox")
       .attr('rel', 'gallery')
       .fancybox({
@@ -476,6 +477,7 @@
               });
           }
       });​
+  });
   </script>
 
 	<!-- Add FitText -->

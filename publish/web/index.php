@@ -450,9 +450,9 @@
 
   <script type="text/javascript">$(document).ready(function(){$(".fancybox").fancybox()});</script>
 
+  
 
-
-  <script type="text/javascript">$(".fancybox").attr("rel","gallery").fancybox({afterShow:function(){$(".fancybox-wrap").swipe({swipe:function(a,b){if(b==="left"||b==="up"){$.fancybox.prev(b)}else{$.fancybox.next(b)}}})}});</script>
+  <script type="text/javascript">$(function(){$(".fancybox").attr("rel","gallery").fancybox({afterShow:function(){$(".fancybox-wrap").swipe({swipe:function(a,b){if(b==="left"||b==="up"){$.fancybox.prev(b)}else{$.fancybox.next(b)}}})}})});</script>
 
 	
 
