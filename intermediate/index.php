@@ -111,7 +111,7 @@
 	<script src="javascripts/foundation/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
 
-  <script defer src='javascripts/c49194f.js'></script>
+  <script defer src='javascripts/2db48ad.js'></script>
 
   <!-- Add fancyBox -->
 
@@ -133,6 +133,26 @@
 
   <script type="text/javascript">
     $("h2").fitText(1.1, { minFontSize: 20, maxFontSize: '40px' });
+  </script>
+
+  <!-- TouchSwipe -->
+
+  <script type="text/javascript">
+    $(".fancybox")
+      .attr('rel', 'gallery')
+      .fancybox({
+          afterShow: function() {
+              $('.fancybox-wrap').swipe({
+                  swipe : function(event, direction) {
+                      if (direction === 'left' || direction === 'up') {
+                          $.fancybox.prev( direction );
+                      } else {
+                          $.fancybox.next( direction );
+                      }
+                  }
+              });
+          }
+      });​
   </script>
 
   <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>

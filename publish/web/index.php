@@ -442,13 +442,17 @@
 	<script src="../javascripts/foundation/jquery.tooltips.js"></script>
 	
 
-  <script defer src='../javascripts/c49194f.js'></script>
+  <script defer src='../javascripts/2db48ad.js'></script>
 
   <script type="text/javascript" src="../javascripts/foundation/jquery.offcanvas.js"></script>
 
   
 
   <script type="text/javascript">$(document).ready(function(){$(".fancybox").fancybox()});</script>
+
+
+
+  <script type="text/javascript">$(".fancybox").attr("rel","gallery").fancybox({afterShow:function(){$(".fancybox-wrap").swipe({swipe:function(a,b){if(b==="left"||b==="up"){$.fancybox.prev(b)}else{$.fancybox.next(b)}}})}});</script>
 
 	
 

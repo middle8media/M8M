@@ -460,6 +460,28 @@
 		});
 	</script>
 
+  <!-- TouchSwipe -->
+
+  <script type="text/javascript">
+  $(function() {
+    $(".fancybox")
+      .attr('rel', 'gallery')
+      .fancybox({
+          afterShow: function() {
+              $('.fancybox-wrap').swipe({
+                  swipe : function(event, direction) {
+                      if (direction === 'left' || direction === 'up') {
+                          $.fancybox.prev( direction );
+                      } else {
+                          $.fancybox.next( direction );
+                      }
+                  }
+              });
+          }
+      });​
+  });
+  </script>
+
 	<!-- Add FitText -->
 
   <script type="text/javascript">

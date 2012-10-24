@@ -137,6 +137,26 @@
     $("h2").fitText(1.1, { minFontSize: 20, maxFontSize: '40px' });
   </script>
 
+  <!-- TouchSwipe -->
+
+  <script type="text/javascript">
+    $(".fancybox")
+      .attr('rel', 'gallery')
+      .fancybox({
+          afterShow: function() {
+              $('.fancybox-wrap').swipe({
+                  swipe : function(event, direction) {
+                      if (direction === 'left' || direction === 'up') {
+                          $.fancybox.prev( direction );
+                      } else {
+                          $.fancybox.next( direction );
+                      }
+                  }
+              });
+          }
+      });​
+  </script>
+
   <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
   <script type="text/javascript" src="../javascripts/jquery.fancybox.pack.js?v=2.0.6"></script>
 

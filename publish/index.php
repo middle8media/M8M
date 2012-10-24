@@ -107,7 +107,7 @@
 	<script src="javascripts/foundation/jquery.tooltips.js"></script>
 	
 
-  <script defer src='javascripts/c49194f.js'></script>
+  <script defer src='javascripts/2db48ad.js'></script>
 
   
 
@@ -120,6 +120,10 @@
   
 
   <script type="text/javascript">$("h2").fitText(1.1,{minFontSize:20,maxFontSize:"40px"});</script>
+
+  
+
+  <script type="text/javascript">$(".fancybox").attr("rel","gallery").fancybox({afterShow:function(){$(".fancybox-wrap").swipe({swipe:function(a,b){if(b==="left"||b==="up"){$.fancybox.prev(b)}else{$.fancybox.next(b)}}})}});</script>
 
   <script type="text/javascript" src="javascripts/foundation/jquery.offcanvas.js"></script>
   <script type="text/javascript" src="../javascripts/jquery.fancybox.pack.js?v=2.0.6"></script>
