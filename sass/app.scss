@@ -83,6 +83,7 @@ body {
 
 ul {
 	list-style: none;
+	margin-left: $baseMargin;
 }
 
 ul li ul, ul li ol {
@@ -307,7 +308,7 @@ blockquote {
 } */
 
 #faq-page li ul {
-margin: 0 0 $baseMargin 0;
+margin: 0 0 $baseMargin $baseMargin;
 }
 
 

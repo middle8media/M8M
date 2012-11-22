@@ -81,21 +81,21 @@
  or via <a title="Skype.com" href="http://www.skype.com/" target="_blank">Skype</a> or <a title="Apple_Facetime" href="http://www.apple.com/mac/facetime/" target="_blank" >Facetime</a>. M8M will then email a project proposal, laying out the terms and cost in detail. Once agreed upon, M8M will provide a contract to be sign by both parties. After the contract is signed it's GO TIME!!! We require 50% payment to start. After this we ask our clients to fill out a short survey to give us a better understanding of the desired outcome of the project. Then we work with you to gather content and deliverables. For a website this usually includes all images, logo files, web copy etc... basically anything in your posession that needs to go on your site, (don't worry we will walk you through it). After that we <span class="has-tip tip-top" title="design and develop for web, shoot and edit for video">produce</span> your project. We then present you with a 1st draft, requiring 25% payment upon delivery. After you provide us with your revisions, we produce the final draft, requiring the final 25% payment upon delivery. We are available for 5 working days after delivery of final draft for support and questions. Changes and revisions are not part of the 5 day support. Support is for fine tuning, questions, thoughts, troubleshooting etc... Any additional support, changes or admin are billed at $100 per hour.</p>
               <h5>So in summary our process looks like this...</h5>
                 <ul>
-                  <li>Initial Contact</li>
-                  <li>Meeting</li>
-                  <li>Project Proposal &amp; Terms</li>
-                  <li>Contract</li>
-                  <li>50% Payment</li>
-                  <li>Client Survey</li>
-                  <li>Client Deliverables &amp; Content</li>
-                  <li>Production</li>
-                  <li>Presentation of 1st Draft</li>
-                  <li>25% Payment</li>
-                  <li>Revisions</li>
-                  <li>Final 25% Payment</li>
-                  <li>Delivery of Final Draft</li>
-                  <li>Support</li>
-                  <li>$100 an hour for any additional support, changes and/or admin</li>
+                  <li>✪ Initial Contact</li>
+                  <li>✪ Meeting</li>
+                  <li>✪ Project Proposal &amp; Terms</li>
+                  <li>✪ Contract</li>
+                  <li>✪ 50% Payment</li>
+                  <li>✪ Client Survey</li>
+                  <li>✪ Client Deliverables &amp; Content</li>
+                  <li>✪ Production</li>
+                  <li>✪ Presentation of 1st Draft</li>
+                  <li>✪ 25% Payment</li>
+                  <li>✪ Revisions</li>
+                  <li>✪ Final 25% Payment</li>
+                  <li>✪ Delivery of Final Draft</li>
+                  <li>✪ Support</li>
+                  <li>✪ $100 an hour for any additional support, changes and/or admin</li>
                 </ul>
                 <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
