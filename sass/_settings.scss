@@ -8,7 +8,7 @@ $totalColumns: 12;
 $mobileTotalColumns: 4;
 
 // Spacing
-$basemargin: 20px;
+$baseMargin: 20px;
 
 $pictos-free-white-spacing: 50px;
 
@@ -49,8 +49,13 @@ $navFlyoutBaseWidth: 250px;
 
 // Modular Scale
 
-$ratio: $golden;
-$base-size: 16px 46px;
+$ratio: $golden; // THIS IS DEFAULT IN MODULAR-SCALE
+$baseFontSize: 20px !default;
+$importantModNum: 44px !default;
+$base-size: $baseFontSize $importantModNum;
+// Produced the following list of values: 14, 17, 23, 27, 37, 44, 59, 71, 95, 115;
+// http://www.modularscale.com by Tim Brown
+// https://github.com/scottkellum/modular-scale by scottkellum
 
 // Foundation Font Icons
 
