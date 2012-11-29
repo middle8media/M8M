@@ -95,6 +95,12 @@ ol {
 	list-style: decimal;
 }
 
+#header {
+	margin-bottom: $baseMargin;
+	@include respond-to(portrait-mobile) {border-bottom: 1px solid #999;};
+	@include respond-to(landscape-mobile) {border-bottom: 1px solid #999;};
+}
+
 #menu {
 	text-align: center;
 	border-top: 1px solid #999;
@@ -102,13 +108,30 @@ ol {
 	li {
 	display: inline;
 	margin: 0 35px;
+	@include respond-to(medium-screens) {margin: 0 27px;};
 }
 }
 
 #mainNav {
 	margin-top: $baseMargin - 3;
+	margin-left: 0;
 	font-family: adelle,serif;
 	font-weight: bold;
+}
+
+.icon-external-link {
+	position: relative;
+	top: 1px;
+	left: -4px;
+}
+
+[role="menu-icon"] {
+	background: #2BA6CB;
+	padding: 13px 10px 4px 10px;
+	border: 1px solid #1e728c;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+		-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
 
 #sideMenu ul li i {
@@ -133,8 +156,13 @@ h1#site-title {
 }
 
 h2 {
-	text-align:center;
+	width: 100%;
+	background: #EB3F40;
+	color: #fff;
+	padding: 10px;
 	margin-bottom:$baseMargin + 10;
+	border-bottom: 3px solid #333;
+	@include respond-to(portrait-mobile) {font-size: 35px};
 }
 
 blockquote {

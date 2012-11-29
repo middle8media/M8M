@@ -42,7 +42,6 @@
 
 		<div class="row">
    		<section role="main">
-        <h2>Welcome to Middle8Media.com</h2>
         <!-- <h3 class="show-for-small">Welcome to Middle8Media.com</h3> -->
   			<div class="row">
   			  <div class="eight columns last">

@@ -32,16 +32,16 @@
 
 </head>
 
-  <body id="page" class="off-canvas hide-extras">
+  <body class="off-canvas hide-extras">
 	<div class="container">
 
 		<header id="header" class="row">
       <?php include '../nav.php'; ?>
 		</header>
 
-		<div class="row">
+		<div id="top" class="row">
   		<section role="main" id="portfolio">
-  			<h2>Simply Beautiful Websites</h2>
+  			<h2>Handcrafted Websites</h2>
 
 		  			<dl class="tabs pill">
 						  <dd class="active"><a href="#thumbnail-view"><i class="icon-th icon-large"></i></a></dd>
@@ -421,7 +421,7 @@
 
 						  </li>
 						</ul>
-						<a href="#page" title="Back to Top"><i class="icon-circle-arrow-up icon-large"></i> Back to Top</a><br /><br />
+						<a href="#top" title="Back to Top"><i class="icon-circle-arrow-up icon-large"></i> Back to Top</a><br /><br />
 					</div>
 				</div>
   		</section>
@@ -492,13 +492,13 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-       $('a[href*=#page]').bind('click', function(e) {
+       $('a[href*=#top]').bind('click', function(e) {
             e.preventDefault(); //prevent the "normal" behaviour which would be a "hard" jump
 
             var target = $(this).attr("href"); //Get the target
 
             // perform animated scrolling by getting top-position of target-element and set it as scroll target
-            $('html, body').stop().animate({ scrollTop: $(target).offset().top }, 2000, 'easeOutExpo', function() {
+            $('html, body').stop().animate({ scrollTop: $(target).offset().top }, 1000, 'easeOutExpo', function() {
 
                  location.hash = target;  //attach the hash (#jumptarget) to the pageurl
             });

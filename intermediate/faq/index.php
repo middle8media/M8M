@@ -16,7 +16,7 @@
 	<meta name="description" content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	<!-- Included CSS Files -->
-	<link rel="stylesheet" href='../stylesheets/d9eb6a1.css'>
+	<link rel="stylesheet" href='../stylesheets/f37b931.css'>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie.css">
@@ -32,16 +32,17 @@
 
 </head>
 
-  <body id="page" class="off-canvas hide-extras">
+  <body class="off-canvas hide-extras">
 	<div id="faq-page" class="container">
 
 		<header id="header" class="row">
       <?php include '../nav.php'; ?>
 		</header>
 
-		<div class="row">
+		<div id="top" class="row">
   		<section role="main">
-        <h2>Frequently Asked Questions</h2>
+        <h2 class="hide-for-small">Frequently Asked Questions</h2>
+        <h2 class="show-for-small">Frequent Questions</h2>
   			<div class="row">
   			  <div class="eight columns">
             <ol>
@@ -56,23 +57,23 @@
               <li><h5>What services do you offer?</h5>
                 <p>We offer full professional <a href="../web">web design & devlopment services</a>. Web design is how your site looks, web development is how your site functions in the <span class="has-tip tip-top" title="Chrome, Safari, Firefox, Internet Explorer">web browser</span>. We can design and code a new site from scratch or build upon an existing framework such as <a title="Wordpress.org" href="http://wordpress.org/" target="_blank" >Wordpress</a> to provide a <span class="has-tip tip-top" title="Content Management System">CMS</span>, which provides admin access to a user friendly dashboard, allowing you to change and update your web content when and where you want.</p>
                 <p>We also provide full professional <a href="../film">video services</a>. Narrative short films, original mini-docs, unique web videos... you name it and we can produce it. We will handle all aspects of the production, from concept and pre-production to principal photography and post production, all working towards the delivery and upload of a finished video. We have worked in film and video for over 15 years and take pride in producing high quality handcrafted work.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
+                <a href="#top" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
               <hr id="cost">
               <li><h5>How much will my project cost?</h5>
                 <p>Each project is bid according to the project needs, size and time frame. Once this is determined, M8M will provide a project proposal and project terms. Our minimum budget per project is $2,500, although we do our best to work within your budget. If we are unable to do so, we will point you in the right direction. Every potential client is important to us, so one way or another we aim to offer a solution.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
+                <a href="#top" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
               <hr id="time">
               <li><h5>How long will my project take?</h5>
                 <p>A rule of thumb is anywhere from 2 weeks to 2 months, but this varies depending on the specific needs, size and time frame of the project. Keep in mind that we are a small studio and can only do <span class="has-tip tip-top" title="Usually 2-3 projects at a time">so much</span>, and if you need it yesterday, we will charge accordingly.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
+                <a href="#top" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
               <hr id="payment">
               <li><h5>What is your payment process?</h5>
                 <p>After the project proposal and project terms are agreed upon and a contract is signed, we require 50% up front to start, 25% upon delivery of 1st draft and 25% upon delivery of final draft.</p>
                 <p>We accept cash, check & <span class="has-tip tip-top" title="A small processing fee is applied">credit</span>.</p>
-                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
+                <a href="#top" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
               <hr id="process">
               <li><h5>What is your creative process?</h5>
@@ -97,7 +98,7 @@
                   <li>✪ Support</li>
                   <li>✪ $100 an hour for any additional support, changes and/or admin</li>
                 </ul>
-                <a href="#page" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
+                <a href="#top" title="Back to Questions">Back to Questions <i class="icon-circle-arrow-up icon-large"></i></a>
               </li>
             </ol>
       		</div>
@@ -150,13 +151,13 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-       $('a[href*=#page], a[href*=#services], a[href*=#cost], a[href*=#time], a[href*=#payment], a[href*=#process]').bind('click', function(e) {
+       $('a[href*=#top], a[href*=#services], a[href*=#cost], a[href*=#time], a[href*=#payment], a[href*=#process]').bind('click', function(e) {
             e.preventDefault(); //prevent the "normal" behaviour which would be a "hard" jump
 
             var target = $(this).attr("href"); //Get the target
 
             // perform animated scrolling by getting top-position of target-element and set it as scroll target
-            $('html, body').stop().animate({ scrollTop: $(target).offset().top }, 2000, 'easeOutExpo', function() {
+            $('html, body').stop().animate({ scrollTop: $(target).offset().top }, 1000, 'easeOutExpo', function() {
 
                  location.hash = target;  //attach the hash (#jumptarget) to the pageurl
             });

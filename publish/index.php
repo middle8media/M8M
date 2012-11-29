@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='stylesheets/d9eb6a1.css'>
+	<link rel=stylesheet href='stylesheets/f37b931.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
 
@@ -38,7 +38,6 @@
 
 		<div class=row>
    		<section role=main>
-        <h2>Welcome to Middle8Media.com</h2>
         
   			<div class=row>
   			  <div class="eight columns last">

@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/d9eb6a1.css'>
+	<link rel=stylesheet href='../stylesheets/f37b931.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
@@ -28,16 +28,16 @@
 
 </head>
 
-  <body id=page class="off-canvas hide-extras">
+  <body class="off-canvas hide-extras">
 	<div class=container>
 
 		<header id=header class=row>
       <?php include '../nav.php'; ?>
 		</header>
 
-		<div class=row>
+		<div id=top class=row>
   		<section role=main id=portfolio>
-  			<h2>Simply Beautiful Websites</h2>
+  			<h2>Handcrafted Websites</h2>
 
 		  			<dl class="tabs pill">
 						  <dd class=active><a href="#thumbnail-view"><i class="icon-th icon-large"></i></a></dd>
@@ -417,7 +417,7 @@
 
 						  </li>
 						</ul>
-						<a href="#page" title="Back to Top"><i class="icon-circle-arrow-up icon-large"></i> Back to Top</a><br/><br/>
+						<a href="#top" title="Back to Top"><i class="icon-circle-arrow-up icon-large"></i> Back to Top</a><br/><br/>
 					</div>
 				</div>
   		</section>
@@ -460,7 +460,7 @@
 
 	
 
-  <script type="text/javascript">$(document).ready(function(){$("a[href*=#page]").bind("click",function(b){b.preventDefault();var a=$(this).attr("href");$("html, body").stop().animate({scrollTop:$(a).offset().top},2000,"easeOutExpo",function(){location.hash=a});return false})});</script>
+  <script type="text/javascript">$(document).ready(function(){$("a[href*=#top]").bind("click",function(b){b.preventDefault();var a=$(this).attr("href");$("html, body").stop().animate({scrollTop:$(a).offset().top},1000,"easeOutExpo",function(){location.hash=a});return false})});</script>
 
   <script type="text/javascript" src="../javascripts/jquery.fancybox.pack.js?v=2.0.6"></script>
 

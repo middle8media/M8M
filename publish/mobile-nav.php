@@ -8,6 +8,7 @@
       <li><a href="/clients/"><i class="icon-trophy icon-large"></i> Clients</a></li>
       <li><a href="/faq/"><i class="icon-question-sign icon-large"></i> FAQ</a></li>
       <li><a href="/connect/"><i class="icon-comments icon-large"></i> Connect</a></li>
+      <li><a href="http://middle8media.github.com"><i class="icon-pencil icon-large"></i> Blog</a></li> 
 	  </ul>
   </nav>
 
