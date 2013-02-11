@@ -64,7 +64,7 @@
 
               <ul>
 	            <li>✪ Web Design</li>
-                <li>✪ Front-End Development (<span class=html>HTML5</span>, <span class=css>CSS3</span> & <span class=js>jQuery</span>)</li>
+                <li>✪ Front-End Development (<span class=html>HTML5</span>, <span class=css>CSS3</span> & <span class=js>Javascript</span>)</li>
                 <li>✪ Responsive/Mobile Ready Web Design</li>
                 <li>✪ Wordpress Installation & Customization</li>
                 <li>✪ Film & Video Production</li>
