@@ -81,6 +81,9 @@
                       <div class=fitvids>
                        <iframe src="http://player.vimeo.com/video/49926259" width=500 height=281 frameborder=0 webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                        <blockquote>"The Most Integrated Man in the World" - 2012 YouTube Campaign for <a href="http://www.advdirectinc.com/" target=_blank title="Advanced Direct">Advanced Direct</a></blockquote>
+                       <div class="alert-box success">
+                         Winner of a 2013 ADDY!!
+                       </div>
                       </div>
 
                       <h3>OCCS<br/> <small>a M8M mini-doc</small></h3>

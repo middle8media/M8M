@@ -21,7 +21,7 @@
         </ul>
       </div>
       <div class="five columns">
-        <p class="copywrite" >© 2012 Middle8Media | Greensboro, NC</p>
+        <p class="copywrite" >© 2012 - <?php echo date('Y'); ?> Middle8Media | Greensboro, NC</p>
       </div>
     </div>
   </div>

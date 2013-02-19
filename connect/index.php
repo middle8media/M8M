@@ -87,6 +87,11 @@
                           </ul>
                         </div>
 
+                        <div class="panel">
+                          <h5>M8M TinyLetter</h5>
+                          <form style="padding:3px;" action="https://tinyletter.com/middle8media" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/middle8media', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><input type="text" style="width:100%" name="email" id="tlemail" placeholder="Enter your email address"/></p><input type="hidden" value="1" name="embed"/><input class="success button" type="submit" value="Subscribe" /><p style="padding-top: 12px; margin-bottom: 0px;"><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p></form>
+                        </div>
+
                       </div>
                     </div>
                 </li>
