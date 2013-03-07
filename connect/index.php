@@ -63,19 +63,9 @@
 
                       <div class="four columns">
 
-                        <!-- Add Chirp -->
-
-                        <script src="../javascripts/foundation/chirp-min.js"></script>
-                        <div class="panel">
-                          <h5>Latest Tweet</h5>
-                          <script>Chirp({
-                            user: 'middle8media', //Twitter username
-                            max: 1, //Maximum number of tweets to show
-                            count: 1, //Total tweets to retrieve
-                            retweets: true, //Show/Don't show retweets
-                            replies: false,  //Show/Don't show replies
-                            cacheExpire: 1000 * 60 * 2 //Number of milliseconds to cache tweets
-                          })</script>
+                        <div>
+                          <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/middle8media" data-widget-id="309680350584504320">Tweets by @middle8media</a>
+                          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         </div>
 
                         <div class="social-networks panel">

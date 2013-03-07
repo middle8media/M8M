@@ -372,21 +372,17 @@ margin: 0 0 $baseMargin $baseMargin;
 	@include respond-to(portrait-mobile) {padding-right: 0px;}
 	@include respond-to(landscape-mobile) {padding-right: 0px;}
 }
-.chirp p a img {
-	float: left;
-	width: 58px;
-	height: auto;
-	margin: 4px 24px 0px 0px;
-	-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-			border-radius: 5px;
-	border: none;
+
+#twitter-widget-0 {
+	width: 100%;
+/*	@include respond-to(portrait-mobile) {min-height: 365px;}
+	@include respond-to(landscape-mobile) {min-height: 365px;}*/
+	margin-bottom: 15px;
 }
 
-p.chirp .meta, .chirp .meta a {
-	font-size: 12px;
+.tweet-box-button.web-intent {
+	width: 100%;
 }
-
 /* -------------------------------------------- Jot Form */
 
 fieldset {

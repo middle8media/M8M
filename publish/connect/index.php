@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/f37b931.css'>
+	<link rel=stylesheet href='../stylesheets/6699fea.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
@@ -59,12 +59,9 @@
 
                       <div class="four columns">
 
-                        
-
-                        <script src="../javascripts/foundation/chirp-min.js"></script>
-                        <div class=panel>
-                          <h5>Latest Tweet</h5>
-                          <script>Chirp({user:"middle8media",max:1,count:1,retweets:true,replies:false,cacheExpire:1000*60*2});</script>
+                        <div>
+                          <a class=twitter-timeline data-dnt=true href="https://twitter.com/middle8media" data-widget-id=309680350584504320>Tweets by @middle8media</a>
+                          <script>!function(e,a,f){var c,b=e.getElementsByTagName(a)[0];if(!e.getElementById(f)){c=e.createElement(a);c.id=f;c.src="//platform.twitter.com/widgets.js";b.parentNode.insertBefore(c,b)}}(document,"script","twitter-wjs");</script>
                         </div>
 
                         <div class="social-networks panel">

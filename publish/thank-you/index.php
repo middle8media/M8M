@@ -16,7 +16,7 @@
 	<meta name=description content="We design & develop beautifully responsive websites, as well as produce unique & engaging films, for the artist & entrepreneur alike.">
 
 	
-	<link rel=stylesheet href='../stylesheets/f37b931.css'>
+	<link rel=stylesheet href='../stylesheets/6699fea.css'>
 
 	<!--[if lt IE 9]><link rel=stylesheet href="css/ie.css"><![endif]-->
   <script type="text/javascript" src="http://use.typekit.com/kbo4elj.js"></script>
