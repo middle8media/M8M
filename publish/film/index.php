@@ -111,29 +111,20 @@
                 <li id=moreTab>
                   <div class=row>
 
-                     <div class="four columns">
+                     <div class="six columns">
                        <div class=panel>
                          <h5>Watch on Vimeo</h5>
-                       <p>You can watch these and other films on Vimeo.</p>
+                       <p>Watch all of our films on Vimeo.</p>
                        <p><a href="https://vimeo.com/middle8media" target=_blank class="small button">M8M on Vimeo</a></p>
                        <br/>
                        </div>
                      </div>
 
-                    <div class="four columns">
+                    <div class="six columns">
                       <div class=panel>
                         <h5>Interested in a short film?</h5>
                       <p>Email us about a film for your business, event, family etc...</p>
                       <p><a href="mailto:info@middle8media.com?subject=Short Film Inquiry" "email Seth" class="small button">info@middle8media.com</a></p>
-                      <br/>
-                      </div>
-                    </div>
-
-                    <div class="four columns">
-                      <div class=panel>
-                        <h5>We also make feature films!</h5>
-                      <p>For our feature film efforts, visit NewRiverReleasing.com</p>
-                      <p><a href="http://newriverreleasing.com" target=_blank  title="New River Releasing" class="small button">New River Releasing</a></p>
                       <br/>
                       </div>
                     </div>
