@@ -159,7 +159,7 @@
 													<li>✪ Custom Widgets</li>
 													<li>✪ Newsletter Integration</li>
 												</ul>
-												<p><a href="http://newriverreleasing.com" target="_blank"  title="New River Releasing" class="small button"><i class="icon-link icon-large"></i> View Website</a></p>
+												<!-- <p><a href="http://newriverreleasing.com" target="_blank"  title="New River Releasing" class="small button"><i class="icon-link icon-large"></i> View Website</a></p> -->
 										</div>
 								</div>
 
@@ -239,7 +239,7 @@
 													<li>✪ <span class="html">HTML5</span> Audio</li>
 													<li>✪ Javascript/jQuery</li>
 												</ul>
-												<p><a href="http://elizabethhall.me" target="_blank" title="Elizabeth Hall Voice Over Artist" class="small button"><i class="icon-link icon-large"></i> View Website</a></p>
+												<!-- <p><a href="http://elizabethhall.me" target="_blank" title="Elizabeth Hall Voice Over Artist" class="small button"><i class="icon-link icon-large"></i> View Website</a></p> -->
 										</div>
 								</div>
 
@@ -258,7 +258,7 @@
 													<li>✪ Scalable Icon Fonts</li>
 													<li>✪ Email Database</li>
 												</ul>
-												<p><a href="http://digitalswagmachine.com" target="_blank" title="Digital Swag Machine" class="small button"><i class="icon-link icon-large"></i> View Website</a></p>
+												<!-- <p><a href="http://digitalswagmachine.com" target="_blank" title="Digital Swag Machine" class="small button"><i class="icon-link icon-large"></i> View Website</a></p> -->
 										</div>
 								</div>
 
