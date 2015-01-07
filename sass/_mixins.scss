@@ -1,0 +1,57 @@
+@mixin radial-gradient($from, $to) {
+	background: -moz-radial-gradient(center, circle cover, $from 0%, $to 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $from), color-stop(100%, $to));
+	background: -webkit-radial-gradient(center, circle cover, $from 0%, $to 100%);
+	background: -o-radial-gradient(center, circle cover, $from 0%, $to 100%);
+	background: -ms-radial-gradient(center, circle cover, $from 0%, $to 100%);
+	background: radial-gradient(center, circle cover, $from 0%, $to 100%);
+	background-color: $from;
+}
+
+@mixin transition($property, $duration, $easing: ease-in-out) {
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+	-ms-transition: $property $duration $easing;
+	-o-transition: $property $duration $easing;
+	transition: $property $duration $easing;
+}
+
+$prefix:'-moz-', '-webkit-', '-o-', '-ms-', '';
+// ********************
+// fadeIn
+// ********************
+@mixin keyframe-fadeIn {
+	0%   { opacity:0; }
+	100% { opacity:1; }
+}
+@-moz-keyframes fadeIn {
+	@include keyframe-fadeIn;
+}
+@-webkit-keyframes fadeIn {
+	@include keyframe-fadeIn;
+}
+@-o-keyframes fadeIn {
+	@include keyframe-fadeIn;
+}
+@-ms-keyframes fadeIn {
+	@include keyframe-fadeIn;
+}
+@keyframes fadeIn {
+	@include keyframe-fadeIn;
+}
+@mixin fadeIn( $arg ) {
+	$keyframe-name:fadeIn;
+	$duration:$arg;
+	@each $p in $prefix {
+		#{$p}animation:$keyframe-name $duration;
+	}
+}
+
+@mixin user-select($select) {
+	-webkit-touch-callout: $select;
+	-webkit-user-select: $select;
+	-khtml-user-select: $select;
+	-moz-user-select: $select;
+	-ms-user-select: $select;
+	user-select: $select;
+}

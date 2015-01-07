@@ -1,0 +1,96 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  font-size: 1.6rem; }
+  body .main {
+    background: -moz-radial-gradient(center, circle cover, #780206 0%, #0c1b31 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #780206), color-stop(100%, #0c1b31));
+    background: -webkit-radial-gradient(center, circle cover, #780206 0%, #0c1b31 100%);
+    background: -o-radial-gradient(center, circle cover, #780206 0%, #0c1b31 100%);
+    background: -ms-radial-gradient(center, circle cover, #780206 0%, #0c1b31 100%);
+    background: radial-gradient(center, circle cover, #780206 0%, #0c1b31 100%);
+    background-color: #780206;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+    body .main .logo {
+      -moz-animation: fadeIn 3s;
+      -webkit-animation: fadeIn 3s;
+      -o-animation: fadeIn 3s;
+      -ms-animation: fadeIn 3s;
+      animation: fadeIn 3s;
+      background: url(../images/m8m-logo-white-color.png) center center no-repeat;
+      width: 100%;
+      height: 100%;
+      background-size: 40%; }
+      @media screen and (min-width: 48em)  {
+        body .main .logo {
+          background-size: 30%; } }
+      @media screen and (min-width: 64.063em)  {
+        body .main .logo {
+          background-size: 20%; } }
+      @media screen and (min-width: 90em)  {
+        body .main .logo {
+          background-size: 17%; } }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #fff; }
