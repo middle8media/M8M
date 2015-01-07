@@ -2,5 +2,4 @@
 
 ---
 Middle8Media v3.0  
-Founder/Creative Director: Seth Hall  
 Twitter: [@middle8media](http://twitter.com/middle8media)
